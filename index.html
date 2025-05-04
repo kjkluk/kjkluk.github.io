@@ -24,14 +24,14 @@
 
         /* 桌面（PC）布局 */
         .flag {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); /* 创建 5 列，均分宽度 */
+            display: flex; /* 使用 Flexbox 布局 */
+            flex-direction: column; /* 垂直排列条纹 */
             width: 100%;
             min-height: 100vh; /* 确保至少占据整个视口高度 */
             font-size: xx-large;
             font-weight: bold;
             text-align: center;
-            align-items: center; /* 垂直居中条纹 */
+            align-items: stretch; /* 拉伸条纹以填充容器 */
         }
 
         .stripe {
@@ -40,7 +40,8 @@
             justify-content: center;
             padding: 10px;
             word-break: break-word;
-            width: 100%; /* 确保条纹占据整个列宽 */
+            width: 100%; /* 确保条纹占据整个宽度 */
+            flex: 1; /* 关键：使条纹平均分配剩余空间 */
         }
 
         .stripe-text {
@@ -90,7 +91,7 @@
         /* 移动端调整 */
         @media (max-width: 768px) {
             .flag {
-                flex-direction: column; /* 垂直排列 */
+                flex-direction: row; /* 水平排列 */
                 flex-wrap: nowrap;
                 align-items: stretch;   /* 条纹全宽显示 */
             }
