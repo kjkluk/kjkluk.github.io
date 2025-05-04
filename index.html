@@ -8,33 +8,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        /* 全局设置，确保内外边距计算一致 */
+* {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
     font-family: 'Noto Sans SC', sans-serif; /* 使用更现代的字体 */
 }
 
+/* 桌面（PC）布局 */
 .flag {
     width: 100%;
-    min-height: 100vh; /* 确保旗帜填充整个高度但不过度拉伸 */
+    height: 100vh;
     display: flex;
+    flex-direction: row;      /* 水平排列 */
+    flex-wrap: nowrap;        /* 禁止换行，防止条纹分裂 */
     font-size: xx-large;
     font-weight: bold;
     text-align: center;
-    align-items: center; /* 垂直居中 */
-    flex-wrap: nowrap; /* 确保条纹不会换行 */
+    align-items: center;      /* 垂直居中 */
 }
 
 .stripe {
-    flex: 1; /* 让所有条纹自动填充整个父容器 */
-    display: flex; /* 使用 Flexbox 代替 Table/Grid */
-    align-items: center; /* 垂直居中条纹内的文本 */
-    justify-content: center; /* 水平居中条纹内的文本 */
-    word-break: break-word; /* 让文本在适当的地方换行 */
+    flex: 1;                 /* 自适应均分宽度 */
+    display: flex;           /* 使用 Flexbox 布局 */
+    align-items: center;     /* 内容垂直居中 */
+    justify-content: center; /* 内容水平居中 */
+    word-break: break-word;  /* 正常断行，不要生硬断开 */
 }
 
 .stripe-text {
-    color: #32CD32; /* 统一文字颜色为绿色 */
-    padding: 10px; /* 增加内边距，使文本更舒适 */
+    color: #32CD32;          /* 使用一种明确的绿色，比 light-green 更稳定 */
+    padding: 10px;           /* 增加内边距 */
 }
 
 .blue {
@@ -47,7 +54,7 @@
 
 .white {
     background-color: #FFFFFF;
-    color: #F7A8B8; /* 白色条纹上的文字颜色 */
+    color: #F7A8B8;          /* 白色条纹上的文字颜色 */
 }
 
 .background {
@@ -55,15 +62,16 @@
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 40px; /* 增加更多外边距 */
+    margin-top: 20px;        /* 与上方区域分隔 */
     position: relative;
-    z-index: 10; /* 确保它不会被盖住 */
+    z-index: 10;             /* 确保它不会被前面的内容遮挡 */
 }
 
+/* 链接样式 */
 a {
     text-decoration: none;
     color: #ffff00;
-    transition: color 0.3s ease; /* 添加过渡效果 */
+    transition: color 0.3s ease;  /* 添加过渡效果 */
 }
 
 a:visited {
@@ -71,26 +79,27 @@ a:visited {
 }
 
 a:hover {
-    color: #ffeb3b; /* 稍微改变 hover 颜色 */
+    color: #ffeb3b;          /* Hover 时轻微改变颜色 */
 }
 
-/* 移动端优化 */
+/* 移动端调整 */
 @media (max-width: 768px) {
     .flag {
-        flex-direction: column; /* 在小屏幕上垂直排列 */
-        align-items: stretch; /* 让条纹填充整个宽度 */
+        flex-direction: column; /* 垂直排列 */
+        flex-wrap: nowrap;
+        align-items: stretch;   /* 条纹全宽显示 */
     }
-
+    
     .stripe {
-        width: 100%;
+        width: 100%;            /* 每个条纹占据整个宽度 */
     }
-
+    
     .background {
-        margin-top: 60px; /* 增加间距，防止重叠 */
+        margin-top: 60px;       /* 增加上边距，避免重叠 */
         padding-bottom: 30px;
     }
 }
-    </style>
+      </style>
 </head>
 <body>
     <div class="flag">
