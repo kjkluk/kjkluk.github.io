@@ -50,6 +50,9 @@
             text-align: center;
             padding: 20px;
             margin-top: 20px; /* 增加一些外边距 */
+            position: relative;
+            z-index: 10; /* 确保它不会被盖住 */
+            }
         }
 
         a {
@@ -73,6 +76,7 @@
         flex-direction: column;
         align-items: center;
         flex-wrap: nowrap; /* 防止条纹分裂 */
+    
         
          min-height: 100vh; /* 让它适应内容高度，而不是强制固定 */
         }
