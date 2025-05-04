@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见积分表</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        h2 {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #34495e;
+            font-weight: 600;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        th {
+            background-color: #ecf0f1;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        td {
+            color: #34495e;
+        }
+        th:first-child, td:first-child {
+            padding-left: 20px;
+        }
+        th:last-child, td:last-child {
+            padding-right: 20px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        .katex-display {
+            margin: 0.5em 0;
+            text-align: left;
+        }
+        .formula {
+            padding-left: 20px;
+        }
+        .indent {
+            padding-left: 40px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>常见积分表</h1>
+
+    <h2>基本积分公式</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>函数</th>
+                <th>积分</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\(x^n\) \((n \neq -1)\)</td>
+                <td class="formula">\(\frac{x^{n+1}}{n+1} + C\)</td>
+            </tr>
+            <tr>
+                <td>\(x^{-1} = \frac{1}{x}\)</td>
+                <td class="formula">\(\ln |x| + C\)</td>
+            </tr>
+            <tr>
+                <td>\(a^x\) \((a > 0, a \neq 1)\)</td>
+                <td class="formula">\(\frac{a^x}{\ln a} + C\)</td>
+            </tr>
+            <tr>
+                <td>\(e^x\)</td>
+                <td class="formula">\(e^x + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\sin x\)</td>
+                <td class="formula">\(-\cos x + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\cos x\)</td>
+                <td class="formula">\(\sin x + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\tan x\)</td>
+                <td class="formula">\(\ln |\sec x| + C = -\ln |\cos x| + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\cot x\)</td>
+                <td class="formula">\(\ln |\sin x| + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\sec x\)</td>
+                <td class="formula">\(\ln |\sec x + \tan x| + C\)</td>
+            </tr>
+             <tr>
+                <td>\(\csc x\)</td>
+                <td class="formula">\(\ln |\csc x - \cot x| + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\frac{1}{\sqrt{a^2 - x^2}}\)</td>
+                <td class="formula">\(\arcsin \frac{x}{a} + C\) \((|x| < a)\)</td>
+            </tr>
+            <tr>
+                <td>\(\frac{1}{a^2 + x^2}\)</td>
+                <td class="formula">\(\frac{1}{a} \arctan \frac{x}{a} + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\frac{1}{\sqrt{x^2 + a^2}}\)</td>
+                <td class="formula">\(\ln (x + \sqrt{x^2 + a^2}) + C\)</td>
+            </tr>
+            <tr>
+                 <td>\(\frac{1}{\sqrt{x^2 - a^2}}\)</td>
+                 <td class="formula">\(\ln |x + \sqrt{x^2 - a^2}| + C\)</td>
+            </tr>
+             <tr>
+                <td>\(\frac{1}{a^2 - x^2}\)</td>
+                <td class="formula">\(\frac{1}{2a} \ln \left| \frac{a + x}{a - x} \right| + C\)</td>
+            </tr>
+             <tr>
+                <td>\(\frac{1}{x^2 - a^2}\)</td>
+                <td class="formula">\(\frac{1}{2a} \ln \left| \frac{x - a}{x + a} \right| + C\)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>换元积分法</h2>
+    <h3>第一类换元法</h3>
+    <p class="formula">
+        \(\int f(\varphi(x)) \varphi'(x) \, dx = \int f(u) \, du \quad (u = \varphi(x))\)
+    </p>
+
+    <h3>第二类换元法</h3>
+    <p class="formula">
+        \(\int f(x) \, dx = \int f(\psi(t)) \psi'(t) \, dt \quad (x = \psi(t))\)
+    </p>
+
+    <p>
+        <span style="font-weight: bold;">常见第二类换元：</span>
+        <ul style="list-style-type: disc;">
+            <li class="formula">
+                \(\sqrt{a^2 - x^2}\)  ，令 \(x = a \sin t\) 或 \(x = a \cos t\)
+            </li>
+            <li class="formula">
+                \(\sqrt{x^2 + a^2}\) ，令 \(x = a \tan t\) 或 \(x = a \sinh t\)
+            </li>
+             <li class="formula">
+                \(\sqrt{x^2 - a^2}\) ，令 \(x = a \sec t\) 或 \(x = a \cosh t\)
+            </li>
+            <li class="formula">
+                \(x^{1/n}\) ，令 \(x = t^n\)
+            </li>
+        </ul>
+    </p>
+
+    <h2>分部积分法</h2>
+    <p class="formula">
+        \(\int u \, dv = uv - \int v \, du\)
+    </p>
+    <p>
+        <span style="font-weight: bold;">常见选 u 的规律：</span>
+        <ul style="list-style-type: disc;">
+            <li class="indent">反三角函数</li>
+            <li class="indent">对数函数</li>
+            <li class="indent">幂函数</li>
+            <li class="indent">指数函数</li>
+            <li class="indent">三角函数</li>
+        </ul>
+    </p>
+
+    <h2>有理函数积分</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>函数</th>
+                <th>积分</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\(\frac{1}{x^2 + a^2}\)</td>
+                <td class="formula">\(\frac{1}{a} \arctan \frac{x}{a} + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\frac{1}{(x-a)(x-b)}\) \((a \neq b)\)</td>
+                <td class="formula">\(\frac{1}{a-b} \ln \left| \frac{x-a}{x-b} \right| + C\)</td>
+            </tr>
+             <tr>
+                <td>\(\frac{px + q}{ax^2 + bx + c}\) \((b^2 - 4ac < 0)\)</td>
+                <td class="formula">
+                    \(\frac{p}{2a} \ln (ax^2 + bx + c) + \frac{2aq - pb}{\sqrt{4ac - b^2}} \arctan \frac{2ax + b}{\sqrt{4ac - b^2}} + C\)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>三角函数积分</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>函数</th>
+                <th>积分</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\(\sin^n x\)</td>
+                <td class="formula">
+                    \(
+                    \begin{cases}
+                        \frac{-\cos x \sin^{n-1} x}{n} + \frac{n-1}{n} \int \sin^{n-2} x \, dx, & (n \geq 2) \\
+                        \frac{-(n-1) \cos x}{n} \sin^{n-1}x + \frac{n-1}{n} \int \sin^{n-2} x \, dx, & (n \geq 2)
+                    \end{cases}
+                    \)
+                </td>
+            </tr>
+            <tr>
+                <td>\(\cos^n x\)</td>
+                 <td class="formula">
+                    \(
+                    \begin{cases}
+                       \frac{\sin x \cos^{n-1} x}{n} + \frac{n-1}{n} \int \cos^{n-2} x \, dx, & (n \geq 2) \\
+                       \frac{(n-1) \sin x}{n} \cos^{n-1}x + \frac{n-1}{n} \int \cos^{n-2} x \, dx, & (n \geq 2)
+                    \end{cases}
+                    \)
+                </td>
+            </tr>
+            <tr>
+                <td>\(\tan^n x\)</td>
+                <td class="formula">\(\frac{\tan^{n-1} x}{n-1} - \int \tan^{n-2} x \, dx + C\) \((n \geq 2)\)</td>
+            </tr>
+            <tr>
+                <td>\(\cot^n x\)</td>
+                <td class="formula">\(\frac{-\cot^{n-1} x}{n-1} - \int \cot^{n-2} x \, dx + C\) \((n \geq 2)\)</td>
+            </tr>
+            <tr>
+                <td>\(\int \sin ax \cos bx \, dx\)</td>
+                <td class="formula">\(\frac{\cos(a-b)x}{2(a-b)} - \frac{\cos(a+b)x}{2(a+b)} + C\)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>反三角函数积分</h2>
+     <table>
+        <thead>
+            <tr>
+                <th>函数</th>
+                <th>积分</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\(\arcsin x\)</td>
+                <td class="formula">\(x \arcsin x + \sqrt{1 - x^2} + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\arccos x\)</td>
+                <td class="formula">\(x \arccos x - \sqrt{1 - x^2} + C\)</td>
+            </tr>
+            <tr>
+                <td>\(\arctan x\)</td>
+                <td class="formula">\(x \arctan x - \frac{1}{2} \ln(1 + x^2) + C\)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
