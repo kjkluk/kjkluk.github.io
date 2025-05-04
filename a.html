@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航页面</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.7;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        section h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        ul li a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        ul li a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            section h2 {
+                font-size: 1.5em;
+            }
+            ul li a {
+                font-size: 1em;
+            }
+            main {
+                padding: 10px;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>导航页面</h1>
+    </header>
+    <main>
+        <section>
+            <h2>网站导航</h2>
+            <p>以下是本网站的页面导航：</p>
+            <ul>
+                <li><a href="#basic-math">基本数学公式</a></li>
+                <li><a href="#applied-math">应用数学公式</a></li>
+                <li><a href="#physics">物理相关</a></li>
+                <li><a href="#chemistry">化学相关</a></li>
+                <li><a href="#links">友情链接</a></li>
+            </ul>
+        </section>
+
+        <section id="basic-math">
+            <h2>基本数学公式</h2>
+            <p>这里收集了一些基本数学公式，例如代数、几何等。</p>
+            <ul>
+                <li><a href="integration-chart.html">积分表</a></li>
+            </ul>
+        </section>
+
+        
+
+        <section id="physics">
+            <h2>物理相关</h2>
+            <p>这里收集了一些物理相关的公式和资源。</p>
+            <ul>
+                <li><a href="#">力学公式</a></li>
+                <li><a href="#">电磁学公式</a></li>
+                <li><a href="#">光学公式</a></li>
+            </ul>
+        </section>
+
+        <section id="chemistry">
+            <h2>化学相关</h2>
+            <p>这里收集了一些化学相关的公式和资源。</p>
+            <ul>
+                <li><a href="#">化学方程式</a></li>
+                <li><a href="#">元素周期表</a></li>
+                <li><a href="#">化学常数</a></li>
+            </ul>
+        </section>
+
+        <section id="links">
+            <h2>友情链接</h2>
+            <p>以下是一些有用的友情链接：</p>
+            <ul>
+                <li><a href="https://www.example.com">示例网站</a></li>
+                <li><a href="https://www.example.com">示例网站</a></li>
+                <li><a href="https://www.example.com">示例网站</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>© kitsune navigation</p>
+    </footer>
+</body>
+</html>
+
