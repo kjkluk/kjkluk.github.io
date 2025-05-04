@@ -21,29 +21,26 @@ body, html {
     height: 100%;
 }
 /* 桌面（PC）布局 */
-.flag {
+
+
+        .flag {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 创建 5 列，均分宽度 */
     width: 100%;
     min-height: 100vh;
-    display: flex;
-    flex-direction: row;      /* 水平排列 */
-    flex-wrap: nowrap;        /* 禁止换行，防止条纹分裂 */
     font-size: xx-large;
     font-weight: bold;
     text-align: center;
-    align-items: center;      /* 垂直居中 */
-    overflow: hidden; /* 防止换行 */
-}
+    align-items: center;
 }
 
 .stripe {
-    flex: 1;                 /* 自适应均分宽度 */
-    display: flex;           /* 使用 Flexbox 布局 */
-    align-items: center;     /* 内容垂直居中 */
-    justify-content: center; /* 内容水平居中 */
-    word-break: break-word;  /* 正常断行，不要生硬断开 */
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    word-break: break-word;
 }
-
 .stripe-text {
     color: #32CD32;          /* 使用一种明确的绿色，比 light-green 更稳定 */
     padding: 10px;           /* 增加内边距 */
