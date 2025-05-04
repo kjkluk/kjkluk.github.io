@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>向量代数与空间解析几何</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="https:// KaTeX.org/ KaTeX /dist/ KaTeX .min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.7; /* 增加默认行高 */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em; /* 首行缩进 */
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #444;
+            text-indent: 0; /* 取消二级标题的缩进 */
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 5px;
+        }
+
+        .formula {
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .equation {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            overflow-x: auto; /* 添加水平滚动条，以防公式过长 */
+        }
+
+        /* 确保 MathJax 公式在容器内正确显示，不超出边界 */
+        .MathJax_Display {
+            margin: 10px 0;
+            overflow-x: auto;
+            display: block;
+            text-align: center;
+            min-width: 100%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .formula, .equation {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>向量代数与空间解析几何</h1>
+
+        <h2>向量代数</h2>
+        <h3>向量的概念</h3>
+        <p>
+            在数学中，向量指一个同时具有大小和方向的几何对象。
+        </p>
+        <ul>
+            <li><b>表示方法</b>：常用粗体字母（如 <b>a</b>）或带有箭头的字母（如 $\vec{a}$）表示向量。在坐标系中，向量可以用有序数组表示，例如，二维向量 <b>a</b> = (x, y)，三维向量 <b>a</b> = (x, y, z)。</li>
+            <li><b>模</b>：向量的大小，记作 |<b>a</b>|。</li>
+            <li><b>单位向量</b>：模为 1 的向量。</li>
+            <li><b>零向量</b>：模为 0 的向量，记作 <b>0</b>。</li>
+            <li><b>相等向量</b>：大小相等且方向相同的向量。</li>
+            <li><b>平行向量（共线向量）</b>：方向相同或相反的向量。</li>
+            <li><b>共面向量</b>：平行于同一平面的向量。</li>
+        </ul>
+
+        <h3>向量的线性运算</h3>
+        <ul>
+            <li><b>加法</b>：
+                <ul>
+                    <li>平行四边形法则：将两个向量的起点放在一起，以这两个向量为邻边作平行四边形，这两个向量的和就是这两个向量的公共起点所引出的对角线。</li>
+                    <li>三角形法则：将一个向量的终点与另一个向量的起点重合，这两个向量的和就是第一个向量的起点指向第二个向量的终点的向量。</li>
+                    <li>坐标表示：若 <b>a</b> = (x₁, y₁, z₁)，<b>b</b> = (x₂, y₂, z₂)，则 <b>a</b> + <b>b</b> = (x₁ + x₂, y₁ + y₂, z₁ + z₂)。</li>
+                </ul>
+            </li>
+            <li><b>减法</b>：<b>a</b> - <b>b</b> = <b>a</b> + (-<b>b</b>)，其中 -<b>b</b> 是 <b>b</b> 的相反向量，即与 <b>b</b> 大小相等，方向相反的向量。
+                <ul>
+                    <li>坐标表示：若 <b>a</b> = (x₁, y₁, z₁)，<b>b</b> = (x₂, y₂, z₂)，则 <b>a</b> - <b>b</b> = (x₁ - x₂, y₁ - y₂, z₁ - z₂)。</li>
+                </ul>
+            </li>
+            <li><b>数乘</b>：λ<b>a</b> 表示一个向量，其大小为 |λ| |<b>a</b>|，方向与 <b>a</b> 相同（当 λ > 0 时）或相反（当 λ < 0 时）。
+                <ul>
+                    <li>坐标表示：若 <b>a</b> = (x, y, z)，则 λ<b>a</b> = (λx, λy, λz)。</li>
+                </ul>
+            </li>
+            <li><b>线性运算的性质</b>：
+                <ul>
+                    <li>交换律：<b>a</b> + <b>b</b> = <b>b</b> + <b>a</b></li>
+                    <li>结合律：(<b>a</b> + <b>b</b>) + <b>c</b> = <b>a</b> + (<b>b</b> + <b>c</b>)</li>
+                    <li>分配律：λ(<b>a</b> + <b>b</b>) = λ<b>a</b> + λ<b>b</b>，(λ + μ)<b>a</b> = λ<b>a</b> + μ<b>a</b></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>向量的数量积（点积、内积）</h3>
+        <ul>
+            <li><b>定义</b>：<b>a</b> · <b>b</b> = |<b>a</b>| |<b>b</b>| cos θ，其中 θ 是 <b>a</b> 和 <b>b</b> 的夹角。</li>
+            <li><b>几何意义</b>：<b>a</b> · <b>b</b> 等于 <b>a</b> 的模与 <b>b</b> 在 <b>a</b> 方向上的投影的乘积。</li>
+            <li><b>坐标表示</b>：若 <b>a</b> = (x₁, y₁, z₁)，<b>b</b> = (x₂, y₂, z₂)，则 <b>a</b> · <b>b</b> = x₁x₂ + y₁y₂ + z₁z₂。</li>
+            <li><b>性质</b>：
+                <ul>
+                    <li><b>a</b> · <b>b</b> = <b>b</b> · <b>a</b></li>
+                    <li>(λ<b>a</b>) · <b>b</b> = λ(<b>a</b> · <b>b</b>) = <b>a</b> · (λ<b>b</b>)</li>
+                    <li>(<b>a</b> + <b>b</b>) · <b>c</b> = <b>a</b> · <b>c</b> + <b>b</b> · <b>c</b></li>
+                    <li><b>a</b> · <b>a</b> = |<b>a</b>|²</li>
+                    <li>若 <b>a</b> ≠ <b>0</b>，<b>b</b> ≠ <b>0</b>，则 <b>a</b> ⊥ <b>b</b> ⇔ <b>a</b> · <b>b</b> = 0。</li>
+                </ul>
+            </li>
+            <li><b>应用</b>：
+                <ul>
+                    <li>计算向量的模：|<b>a</b>| = √(**a</b> · <b>a</b>)</li>
+                    <li>计算向量的夹角：cos θ = (<b>a</b> · <b>b</b>) / (|<b>a</b>| |<b>b</b>|)</li>
+                    <li>判断向量是否垂直：<b>a</b> ⊥ <b>b</b> ⇔ <b>a</b> · <b>b</b> = 0</li>
+                    <li>计算向量在另一个向量上的投影。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>向量的向量积（叉积、外积）</h3>
+        <ul>
+            <li><b>定义</b>：<b>a</b> × <b>b</b> 是一个向量，其模为 |<b>a</b>| |<b>b</b>| sin θ，其中 θ 是 <b>a</b> 和 <b>b</b> 的夹角；其方向垂直于 <b>a</b> 和 <b>b</b> 所在的平面，并服从右手螺旋法则。</li>
+            <li><b>坐标表示</b>：若 <b>a</b> = (x₁, y₁, z₁)，<b>b</b> = (x₂, y₂, z₂)，则
+                <div class="equation">
+                    \[
+                    \mathbf{a} \times \mathbf{b} =
+                    \begin{vmatrix}
+                    \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+                    x_1 & y_1 & z_1 \\
+                    x_2 & y_2 & z_2
+                    \end{vmatrix}
+                    = (y_1z_2 - z_1y_2, z_1x_2 - x_1z_2, x_1y_2 - y_1x_2)
+                    \]
+                </div>
+                其中 <b>i</b>、<b>j</b>、<b>k</b> 分别为 x、y、z 轴的单位向量。
+            </li>
+            <li><b>几何意义</b>：|<b>a</b> × <b>b</b>| 等于以 <b>a</b> 和 <b>b</b> 为邻边的平行四边形的面积。</li>
+            <li><b>性质</b>：
+                <ul>
+                    <li><b>a</b> × <b>b</b> = -<b>b</b> × <b>a</b></li>
+                    <li>(λ<b>a</b>) × <b>b</b> = λ(<b>a</b> × <b>b</b>) = <b>a</b> × (λ<b>b</b>)</li>
+                    <li>(<b>a</b> + <b>b</b>) × <b>c</b> = <b>a</b> × <b>c</b> + <b>b</b> × <b>c</b></li>
+                    <li><b>a</b> × <b>a</b> = <b>0</b></li>
+                    <li>若 <b>a</b> ≠ <b>0</b>，<b>b</b> ≠ <b>0</b>，则 <b>a</b> // <b>b</b> ⇔ <b>a</b> × <b>b</b> = <b>0</b>。</li>
+                </ul>
+            </li>
+            <li><b>应用</b>：
+                <ul>
+                    <li>计算平行四边形的面积：S = |<b>a</b> × <b>b</b>|</li>
+                    <li>计算三角形的面积：S = ½ |<b>a</b> × <b>b</b>|</li>
+                    <li>判断向量是否平行：<b>a</b> // <b>b</b> ⇔ <b>a</b> × <b>b</b> = <b>0</b></li>
+                    <li>求与两个向量都垂直的向量。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>空间解析几何</h2>
+        <h3>平面及其方程</h3>
+        <ul>
+            <li><b>平面方程的表示形式</b>：
+                <ul>
+                    <li>点法式方程：A(x - x₀) + B(y - y₀) + C(z - z₀) = 0，其中 (x₀, y₀, z₀) 是平面上一点，<b>n</b> = (A, B, C) 是平面的法向量。</li>
+                    <li>一般式方程：Ax + By + Cz + D = 0，其中 A, B, C, D 为常数，<b>n</b> = (A, B, C) 是平面的法向量。</li>
+                     <li>截距式方程：x/a + y/b + z/c = 1，其中 a, b, c 分别是平面在 x, y, z 轴上的截距。</li>
+                </ul>
+            </li>
+            <li><b>平面的法向量</b>：垂直于平面的向量。</li>
+            <li><b>两平面的夹角</b>：指它们的法向量的夹角。
+                <ul>
+                    <li>设两平面的法向量分别为 <b>n₁</b> = (A₁, B₁, C₁)，<b>n₂</b> = (A₂, B₂, C₂)，则两平面的夹角 θ 满足：
+                        <div class="equation">
+                            \[
+                            \cos \theta = \frac{|\mathbf{n_1} \cdot \mathbf{n_2}|}{|\mathbf{n_1}| |\mathbf{n_2}|} = \frac{|A_1A_2 + B_1B_2 + C_1C_2|}{\sqrt{A_1^2 + B_1^2 + C_1^2} \sqrt{A_2^2 + B_2^2 + C_2^2}}
+                            \]
+                        </div>
+                    </li>
+                    <li>两平面垂直的条件：A₁A₂ + B₁B₂ + C₁C₂ = 0。</li>
+                </ul>
+            </li>
+            <li><b>点到平面的距离</b>：
+                <ul>
+                     <li>设点 P(x₀, y₀, z₀)，平面方程为 Ax + By + Cz + D = 0，则点 P 到平面的距离为：
+                        <div class="equation">
+                             \[
+                            d = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+                            \]
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>空间直线及其方程</h3>
+        <ul>
+            <li><b>空间直线方程的表示形式</b>：
+                <ul>
+                    <li>点向式方程（参数方程）：
+                        <div class="equation">
+                            \[
+                            \begin{cases}
+                            x = x_0 + at \\
+                            y = y_0 + bt \\
+                            z = z_0 + ct
+                            \end{cases}
+                            \]
+                        </div>
+                        其中 (x₀, y₀, z₀) 是直线上一点，<b>s</b> = (a, b, c) 是直线的方向向量，t 为参数。
+                    </li>
+                    <li>对称式方程（标准方程）：
+                         <div class="equation">
+                            \[
+                            \frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}
+                            \]
+                        </div>
+                        其中 (x₀, y₀, z₀) 是直线上一点，<b>s</b> = (a, b, c) 是直线的方向向量。
+                    </li>
+                </ul>
+            </li>
+            <li><b>空间直线的方向向量</b>：平行于直线的向量。</li>
+            <li><b>两直线的夹角</b>：指它们的方向向量的夹角。
+                <ul>
+                    <li>设两直线的方向向量分别为 <b>s₁</b> = (a₁, b₁, c₁)，<b>s₂</b> = (a₂, b₂, c₂)，则两直线的夹角 θ 满足：
+                         <div class="equation">
+                            \[
+                            \cos \theta = \frac{|\mathbf{s_1} \cdot \mathbf{s_2}|}{|\mathbf{s_1}| |\mathbf{s_2}|} = \frac{|a_1a_2 + b_1b_2 + c_1c_2|}{\sqrt{a_1^2 + b_1^2 + c_1^2} \sqrt{a_2^2 + b_2^2 + c_2^2}}
+                            \]
+                        </div>
+                    </li>
+                    <li>两直线垂直的条件：a₁a₂ + b₁b₂ + c₁c₂ = 0。</li>
+                </ul>
+            </li>
+            <li><b>直线与平面的位置关系</b>：
+                <ul>
+                    <li>直线在平面上：直线上的点都在平面上。</li>
+                    <li>直线与平面平行：直线与平面没有公共点，或直线在平面上。</li>
+                    <li>直线与平面相交：直线与平面有且只有一个公共点。</li>
+                    <li>直线与平面垂直：直线的方向向量与平面的法向量平行。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>曲面及其方程</h3>
+        <ul>
+            <li><b>常见曲面</b>：
+                <ul>
+                    <li>球面：到定点距离等于定长的点的集合。球面方程：(x - x₀)² + (y - y₀)² + (z - z₀)² = R²，其中 (x₀, y₀, z₀) 是球心，R 是半径。</li>
+                    <li>柱面：由平行于定直线 L 且沿定曲线 C 移动的直线形成的曲面。</li>
+                    <li>锥面：由过定点 M 且沿定曲线 C 移动的直线形成的曲面。</li>
+                    <li>旋转曲面：由一条平面曲线绕同一平面内一条定直线旋转所成的曲面。</li>
+                </ul>
+            </li>
+            <li><b>二次曲面</b>：可以用三元二次方程表示的曲面。常见的二次曲面有：
+                <ul>
+                    <li>椭球面：x²/a² + y²/b² + z²/c² = 1</li>
+                    <li>双曲面：单叶双曲面 x²/a² + y²/b² - z²/c² = 1，双叶双曲面 x²/a² - y²/b² - z²/c² = 1</li>
+                    <li>抛物面：椭圆抛物面 z = x²/p + y²/q，双曲抛物面 z = x²/p - y²/q</li>
+                    <li>圆锥面：x²/a² + y²/b² - z²/c² = 0</li>
+                    <li>柱面：圆柱面 x² + y² = R²，椭圆柱面 x²/a² + y²/b² = 1，双曲柱面 x²/a² - y²/b² = 1，抛物柱面 y² = 2px</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
