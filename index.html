@@ -9,115 +9,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            font-family: 'Noto Sans SC', sans-serif; /* 使用更现代的字体 */
-        }
+    margin: 0;
+    font-family: 'Noto Sans SC', sans-serif; /* 使用更现代的字体 */
+}
 
-        .flag {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            font-size: xx-large;
-            font-weight: bold;
-            text-align: center;
-            align-items: center; /* 垂直居中 */
-            flex-wrap: wrap; /* 允许条纹在小屏幕上换行 */
-        }
-        .stripe {
-            width: 20%;
-            display: flex; /* 使用 Flexbox 代替 Table/Grid */
-            align-items: center; /* 垂直居中条纹内的文本 */
-            justify-content: center; /* 水平居中条纹内的文本 */
-            word-break: break-all;
-        }
-        .stripe-text {
-            color: light-green; /* 统一文字颜色为浅绿，然后在需要的地方覆盖 */
-            padding: 10px; /* 增加内边距，使文本更舒适 */
-        }
-        .blue {
-            background-color: #55CDFC;
-        }
-        .pink {
-            background-color: #F7A8B8;
-        }
-        .white {
-            background-color: #FFFFFF;
-            color: #F7A8B8; /* 白色条纹上的文字颜色 */
-        }
-        .background {
-            background-color: #F7A8B8;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px; /* 增加一些外边距 */
-            position: relative;
-            z-index: 10; /* 确保它不会被盖住 */
-            }
-        }
+.flag {
+    width: 100%;
+    min-height: 100vh; /* 确保旗帜填充整个高度但不过度拉伸 */
+    display: flex;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    align-items: center; /* 垂直居中 */
+    flex-wrap: nowrap; /* 确保条纹不会换行 */
+}
 
-        a {
-            text-decoration: none;
-            color: #ffff00;
-            transition: color 0.3s ease; /* 添加过渡效果 */
-        }
+.stripe {
+    flex: 1; /* 让所有条纹自动填充整个父容器 */
+    display: flex; /* 使用 Flexbox 代替 Table/Grid */
+    align-items: center; /* 垂直居中条纹内的文本 */
+    justify-content: center; /* 水平居中条纹内的文本 */
+    word-break: break-word; /* 让文本在适当的地方换行 */
+}
 
-        a:visited {
-            color: #ffff00;
-        }
+.stripe-text {
+    color: #32CD32; /* 统一文字颜色为绿色 */
+    padding: 10px; /* 增加内边距，使文本更舒适 */
+}
 
-        a:hover {
-            color: #ffeb3b; /* 稍微改变 hover 颜色 */
-        }
+.blue {
+    background-color: #55CDFC;
+}
 
-        /* 移动端调整 */
-        @media (max-width: 768px) {
+.pink {
+    background-color: #F7A8B8;
+}
+
+.white {
+    background-color: #FFFFFF;
+    color: #F7A8B8; /* 白色条纹上的文字颜色 */
+}
+
+.background {
+    background-color: #F7A8B8;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* 增加更多外边距 */
+    position: relative;
+    z-index: 10; /* 确保它不会被盖住 */
+}
+
+a {
+    text-decoration: none;
+    color: #ffff00;
+    transition: color 0.3s ease; /* 添加过渡效果 */
+}
+
+a:visited {
+    color: #ffff00;
+}
+
+a:hover {
+    color: #ffeb3b; /* 稍微改变 hover 颜色 */
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
     .flag {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: nowrap; /* 防止条纹分裂 */
-    
-        
-         min-height: 100vh; /* 让它适应内容高度，而不是强制固定 */
-        }
+        flex-direction: column; /* 在小屏幕上垂直排列 */
+        align-items: stretch; /* 让条纹填充整个宽度 */
     }
+
     .stripe {
         width: 100%;
-        display: block;
-        text-align: center;
+    }
 
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-        
+    .background {
+        margin-top: 60px; /* 增加间距，防止重叠 */
+        padding-bottom: 30px;
     }
-        }
-            
-            
-            .stripe-text {
-                font-size: 1.2em; /* 调整小屏幕上的字体大小 */
-                 word-wrap: break-word;
-                }
-            }
-            .background {
-    display: block;
-    position: relative;
-    z-index: 1; /* 确保它不会被覆盖 */
-        margin-top: 40px; /* 加大间距，确保不会重叠 */
-        padding-bottom: 20px; /* 额外的间距 */
-    }
-                }
-                }
-                
-            }
-           .background::after {
-           content: "";
-           display: block;
-           clear: both;
-        }
-            
-        }
+}
     </style>
 </head>
 <body>
