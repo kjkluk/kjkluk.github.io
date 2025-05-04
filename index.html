@@ -25,7 +25,7 @@
         /* 桌面（PC）布局 */
         .flag {
             display: flex; /* 使用 Flexbox 布局 */
-            flex-direction: column; /* 垂直排列条纹 */
+            flex-direction: row; /* 垂直排列条纹 */
             width: 100%;
             min-height: 100vh; /* 确保至少占据整个视口高度 */
             font-size: xx-large;
@@ -91,7 +91,7 @@
         /* 移动端调整 */
         @media (max-width: 768px) {
             .flag {
-                flex-direction: row; /* 水平排列 */
+                flex-direction: column; /* 水平排列 */
                 flex-wrap: nowrap;
                 align-items: stretch;   /* 条纹全宽显示 */
             }
