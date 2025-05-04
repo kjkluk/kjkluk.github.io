@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导数表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 更改为flex-start以避免垂直居中 */
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* 添加上边距 */
+            max-width: 800px; /* 限制容器宽度 */
+            width: 95%; /* 确保在小屏幕上占据大部分宽度 */
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #myCanvas {
+          border: 1px solid #ddd;
+          margin-top: 10px;
+          display: block; /* 确保canvas是块级元素，避免一些布局问题 */
+          max-width: 100%; /* 确保canvas宽度不超过容器 */
+          height: auto; /* 保持canvas的原始宽高比，避免拉伸失真 */
+        }
+
+        /* 打印样式 */
+        @media print {
+            body {
+                background-color: transparent;
+            }
+
+            .container {
+                background-color: transparent;
+                box-shadow: none;
+                margin-top: 0;
+                padding: 0;
+            }
+
+            h1 {
+                color: #000;
+            }
+
+            #myCanvas {
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>导数表</h1>
+        <canvas id="myCanvas"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 设置画布尺寸
+        const container = document.querySelector('.container'); // 获取容器元素
+        const maxWidth = Math.min(800, container.clientWidth * 0.95); // 使用容器的宽度
+        canvas.width = maxWidth;
+        canvas.height = 600; // 适当调整高度以适应内容
+
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = '16px Arial';
+        ctx.fillStyle = '#333';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+
+        const startX = 20;
+        const startY = 30;
+        const lineHeight = 30;
+
+        let x = startX;
+        let y = startY;
+
+        function drawRow(func, derivative) {
+            ctx.fillText(func, x, y);
+            ctx.fillText(derivative, x + 200, y);
+            y += lineHeight;
+        }
+
+        ctx.font = '18px 宋体'; // 设置宋体
+        ctx.fillText('函数', x, y);
+        ctx.fillText('导数', x + 200, y);
+        y += lineHeight;
+        ctx.font = '16px Arial'; // 恢复Arial
+
+        ctx.beginPath();
+        ctx.moveTo(startX, y);
+        ctx.lineTo(canvas.width - 20, y);
+        ctx.strokeStyle = '#ddd';
+        ctx.stroke();
+        y += lineHeight;
+
+        drawRow('c (常数)', '0');
+        drawRow('x^n', 'nx^(n-1)');
+        drawRow('a^x', 'a^x * ln(a)');
+        drawRow('e^x', 'e^x');
+        drawRow('log_a(x)', '1 / (x * ln(a))');
+        drawRow('ln(x)', '1 / x');
+        drawRow('sin(x)', 'cos(x)');
+        drawRow('cos(x)', '-sin(x)');
+        drawRow('tan(x)', 'sec^2(x)');
+        drawRow('cot(x)', '-csc^2(x)');
+        drawRow('sec(x)', 'sec(x)tan(x)');
+        drawRow('csc(x)', '-csc(x)cot(x)');
+        drawRow('arcsin(x)', '1 / sqrt(1 - x^2)');
+        drawRow('arccos(x)', '-1 / sqrt(1 - x^2)');
+        drawRow('arctan(x)', '1 / (1 + x^2)');
+        drawRow('arccot(x)', '-1 / (1 + x^2)');
+
+        // 绘制完毕后调整画布高度
+        if (y > canvas.height) {
+            canvas.height = y + lineHeight; // 增加一些额外空间
+        }
+
+    </script>
+</body>
+</html>
+
