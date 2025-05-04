@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>橘音的站点</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
+            font-family: 'Noto Sans SC', sans-serif; /* 使用更现代的字体 */
         }
 
         .flag {
-            width: 100%; /* Adjust the width as needed */
-            /* height: 1000px; Adjust the height as needed */
-            height: calc(100vh);
+            width: 100%;
+            height: 100vh;
             display: flex;
-
             font-size: xx-large;
-            font-family: sans-serif;
             font-weight: bold;
-
             text-align: center;
-            vertical-align: middle;
+            align-items: center; /* 垂直居中 */
+            flex-wrap: wrap; /* 允许条纹在小屏幕上换行 */
         }
         .stripe {
-            width: 20%; /* Each stripe takes up 20% of the flag width */
-            /* display: table; */
-            display: grid;
+            width: 20%;
+            display: flex; /* 使用 Flexbox 代替 Table/Grid */
+            align-items: center; /* 垂直居中条纹内的文本 */
+            justify-content: center; /* 水平居中条纹内的文本 */
+            word-break: break-all;
         }
         .stripe-text {
-            /* display: table-cell; */
-            /* vertical-align: middle; */
-            align-self: center;
-            word-break: break-all;
+            color: white; /* 统一文字颜色为白色，然后在需要的地方覆盖 */
+            padding: 10px; /* 增加内边距，使文本更舒适 */
         }
         .blue {
             background-color: #55CDFC;
@@ -41,60 +42,90 @@
         }
         .white {
             background-color: #FFFFFF;
+            color: #F7A8B8; /* 白色条纹上的文字颜色 */
         }
         .background {
             background-color: #F7A8B8;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px; /* 增加一些外边距 */
         }
 
         a {
             text-decoration: none;
             color: #ffff00;
+            transition: color 0.3s ease; /* 添加过渡效果 */
         }
 
         a:visited {
             color: #ffff00;
         }
+
+        a:hover {
+            color: #ffeb3b; /* 稍微改变 hover 颜色 */
+        }
+
+        /* 移动端调整 */
+        @media (max-width: 768px) {
+            .flag {
+                flex-direction: column; /* 在小屏幕上改为垂直排列 */
+            }
+            .stripe {
+                width: 100%; /* 每个条纹占据整个宽度 */
+                height: auto; /* 高度自动调整 */
+                min-height: 100px; /* 确保条纹有最小高度 */
+            }
+            .stripe-text {
+                font-size: 1.2em; /* 调整小屏幕上的字体大小 */
+            }
+            .background {
+                padding: 10px;
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="flag">
-        <div class="stripe blue" style="color: white;">
+        <div class="stripe blue">
             <div class="stripe-text">你好，欢迎来到橘音的站点。</div>
         </div>
         <div class="stripe pink">
-            <div class="stripe-text" style="color: white;">
+            <div class="stripe-text">
                 ssh -X guest@kitsune.qwq.io
             </div>
         </div>
-        <div class="stripe">
-            <div class="stripe-text" style="color: #F7A8B8;">
+        <div class="stripe white">
+            <div class="stripe-text">
                 eMail me ✉️ at <a href="mailto:kjkluk@hotmail.com">kjkluk@hotmail.com</a>
                 or <a href="mailto:kjkluk@yandex.ru">kjkluk@yandex.ru</a>
             </div>
         </div>
         <div class="stripe pink">
-            <div class="stripe-text" style="color: white;">
+            <div class="stripe-text">
                 这是我的<a href="https://x.com/kjkluk">X（Twitter）</a>
-                
             </div>
         </div>
         <div class="stripe blue">
-            <div class="stripe-text" style="color: white;">
+            <div class="stripe-text">
                 这是我的<a href="https://t.me/kjkluk">Telegram</a>
             </div>
         </div>
     </div>
     <div class="background">首页已完成 这里才是真正的内容页<a href="a.html"></a></div>
-    <script>
-        document.getElementById("mailBtn").addEventListener("click", function() {
-            window.location.href = "mailto:kjkluk@yandex.com";
-        });
-        document.getElementById("xBtn").addEventListener("click", function() {
-            window.location.href = "https://x.com/kjkluk";
-        });
-        document.getElementById("tgBtn").addEventListener("click", function() {
-            window.location.href = "https://t.me/kawa1_kitsune";
-        });
+    <script> //反正先不用了
+        //  将事件监听器直接添加到元素上，而不是通过 ID 获取
+        // document.getElementById("mailBtn").addEventListener("click", function() {
+        //     window.location.href = "mailto:kjkluk@yandex.com";
+        // });
+        // document.getElementById("xBtn").addEventListener("click", function() {
+        //     window.location.href = "https://x.com/kjkluk";
+        // });
+        // document.getElementById("tgBtn").addEventListener("click", function() {
+        //     window.location.href = "https://t.me/kawa1_kitsune";
+        // });
     </script>
 </body>
 </html>
+
