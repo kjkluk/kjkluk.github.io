@@ -94,11 +94,21 @@
                 }
             }
             .background {
-                max-width: 100%;
-                padding: 10px;
-                margin-top: 10px;
-                box-sizing: border-box;
+    display: block;
+    position: relative;
+    z-index: 1; /* 确保它不会被覆盖 */
+        margin-top: 40px; /* 加大间距，确保不会重叠 */
+        padding-bottom: 20px; /* 额外的间距 */
+    }
+                }
+                }
+                
             }
+           .background::after {
+           content: "";
+           display: block;
+           clear: both;
+        }
             
         }
     </style>
