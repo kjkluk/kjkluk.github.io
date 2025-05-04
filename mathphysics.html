@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学物理方法与偏微分方程</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="https:// KaTeX.org/ KaTeX /dist/ KaTeX .min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #444;
+            text-indent: 0;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 5px;
+        }
+
+        .formula {
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .equation {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .MathJax_Display {
+            margin: 10px 0;
+            overflow-x: auto;
+            display: block;
+            text-align: center;
+            min-width: 100%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .formula, .equation {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>数学物理方法与偏微分方程</h1>
+
+        <h2>数学物理方法</h2>
+        <h3>复变函数</h3>
+        <ul>
+            <li><b>解析函数</b>：满足柯西-黎曼方程的复变函数。
+                <div class="equation">
+                    \[
+                    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+                    \]
+                </div>
+            </li>
+            <li><b>柯西积分定理</b>：描述解析函数沿闭合曲线积分的性质。
+                <div class="equation">
+                    \[
+                    \oint_C f(z) dz = 0
+                    \]
+                </div>
+            </li>
+            <li><b>留数定理</b>：用于计算复变函数沿闭合曲线的积分，特别是在有奇点的情况下。
+                 <div class="equation">
+                    \[
+                    \oint_C f(z) dz = 2\pi i \sum_{k=1}^n \text{Res}(f, z_k)
+                    \]
+                </div>
+            </li>
+            <li><b>傅里叶变换</b>：用于将函数从时域转换到频域，便于分析和处理。
+                <div class="equation">
+                    \[
+                    F(\omega) = \int_{-\infty}^{\infty} f(t) e^{-i\omega t} dt
+                    \]
+                </div>
+            </li>
+        </ul>
+
+        <h3>特殊函数</h3>
+        <ul>
+            <li><b>贝塞尔函数</b>：在圆柱坐标系中求解拉普拉斯方程和亥姆霍兹方程时出现。
+                <div class="equation">
+                     \[
+                    x^2 \frac{d^2y}{dx^2} + x \frac{dy}{dx} + (x^2 - n^2)y = 0
+                    \]
+                </div>
+            </li>
+            <li><b>勒让德多项式</b>：在球坐标系中求解拉普拉斯方程时出现。
+                <div class="equation">
+                    \[
+                    (1-x^2)\frac{d^2y}{dx^2} - 2x\frac{dy}{dx} + n(n+1)y = 0
+                    \]
+                </div>
+            </li>
+            <li><b>伽马函数</b>：阶乘函数在复数域上的推广。
+                <div class="equation">
+                    \[
+                    \Gamma(z) = \int_0^{\infty} t^{z-1} e^{-t} dt
+                    \]
+                </div>
+            </li>
+        </ul>
+
+        <h2>偏微分方程</h2>
+        <h3>基本概念</h3>
+        <ul>
+            <li><b>偏微分方程 (PDE)</b>：包含未知函数及其偏导数的方程。</li>
+            <li><b>阶</b>：PDE 中出现的最高阶导数的阶数。</li>
+            <li><b>线性与非线性</b>：如果 PDE 中未知函数及其导数以线性方式出现，则它是线性的，否则是非线性的。</li>
+        </ul>
+
+        <h3>常见偏微分方程</h3>
+        <ul>
+            <li><b>波动方程</b>：描述波的传播，如声波、光波等。
+                <div class="equation">
+                    \[
+                    \frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
+                    \]
+                </div>
+            </li>
+            <li><b>热传导方程</b>：描述热量在物体内的传导过程。
+                <div class="equation">
+                    \[
+                    \frac{\partial u}{\partial t} = \alpha \nabla^2 u
+                    \]
+                </div>
+            </li>
+            <li><b>拉普拉斯方程</b>：描述稳定状态下的物理现象，如静电场、稳态温度分布等。
+                 <div class="equation">
+                    \[
+                    \nabla^2 u = 0
+                    \]
+                </div>
+            </li>
+        </ul>
+
+        <h3>求解偏微分方程的方法</h3>
+        <ul>
+            <li><b>分离变量法</b>：将 PDE 分解为若干个常微分方程 (ODE) 来求解。</li>
+            <li><b>格林函数法</b>：通过求解点源的响应来得到 PDE 的通解。</li>
+            <li><b>积分变换法</b>：利用傅里叶变换、拉普拉斯变换等将 PDE 转换为代数方程或 ODE 来求解。</li>
+            <li><b>数值方法</b>：如有限差分法、有限元法等，用于求解无法解析求解的 PDE。</li>
+        </ul>
+    </div>
+</body>
+</html>
+
