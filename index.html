@@ -9,100 +9,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* 全局设置，确保内外边距计算一致 */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: 'Noto Sans SC', sans-serif; /* 使用更现代的字体 */
-}
-body, html {
-    height: 100%;
-}
-/* 桌面（PC）布局 */
-
-
-        .flag {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 创建 5 列，均分宽度 */
-    width: 100%;
-    min-height: 100vh;
-    font-size: xx-large;
-    font-weight: bold;
-    text-align: center;
-    align-items: center;
-    height: 800%;
+        * {
+            box-sizing: border-box;
         }
 
-.stripe {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    word-break: break-word;
-}
-.stripe-text {
-    color: #32CD32;          /* 使用一种明确的绿色，比 light-green 更稳定 */
-    padding: 10px;           /* 增加内边距 */
-}
+        body {
+            margin: 0;
+            font-family: 'Noto Sans SC', sans-serif; /* 使用更现代的字体 */
+        }
+        body, html {
+            height: 100%;
+        }
+        /* 桌面（PC）布局 */
+        .flag {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 创建 5 列，均分宽度 */
+            width: 100%;
+            min-height: 100vh;
+            font-size: xx-large;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
+            height: 800%;
+        }
 
-.blue {
-    background-color: #55CDFC;
-}
+        .stripe {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            word-break: break-word;
+        }
+        .stripe-text {
+            color: #32CD32;          /* 使用一种明确的绿色，比 light-green 更稳定 */
+            padding: 10px;           /* 增加内边距 */
+        }
 
-.pink {
-    background-color: #F7A8B8;
-}
+        .blue {
+            background-color: #55CDFC;
+        }
 
-.white {
-    background-color: #FFFFFF;
-    color: #F7A8B8;          /* 白色条纹上的文字颜色 */
-}
+        .pink {
+            background-color: #F7A8B8;
+        }
 
-.background {
-    background-color: #F7A8B8;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;        /* 与上方区域分隔 */
-    position: relative;
-    z-index: 10;             /* 确保它不会被前面的内容遮挡 */
-}
+        .white {
+            background-color: #FFFFFF;
+            color: #F7A8B8;          /* 白色条纹上的文字颜色 */
+        }
 
-/* 链接样式 */
-a {
-    text-decoration: none;
-    color: #ffff00;
-    transition: color 0.3s ease;  /* 添加过渡效果 */
-}
+        .background {
+            background-color: #F7A8B8;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;        /* 与上方区域分隔 */
+            position: relative;
+            z-index: 10;             /* 确保它不会被前面的内容遮挡 */
+        }
 
-a:visited {
-    color: #ffff00;
-}
+        /* 链接样式 */
+        a {
+            text-decoration: none;
+            color: #ffff00;
+            transition: color 0.3s ease;  /* 添加过渡效果 */
+        }
 
-a:hover {
-    color: #ffeb3b;          /* Hover 时轻微改变颜色 */
-}
+        a:visited {
+            color: #ffff00;
+        }
 
-/* 移动端调整 */
-@media (max-width: 768px) {
-    .flag {
-        flex-direction: column; /* 垂直排列 */
-        flex-wrap: nowrap;
-        align-items: stretch;   /* 条纹全宽显示 */
-    }
-    
-    .stripe {
-        width: 100%;            /* 每个条纹占据整个宽度 */
-    }
-    
-    .background {
-        margin-top: 60px;       /* 增加上边距，避免重叠 */
-        padding-bottom: 30px;
-    }
-}
-      </style>
+        a:hover {
+            color: #ffeb3b;          /* Hover 时轻微改变颜色 */
+        }
+
+        /* 移动端调整 */
+        @media (max-width: 768px) {
+            .flag {
+                flex-direction: column; /* 垂直排列 */
+                flex-wrap: nowrap;
+                align-items: stretch;   /* 条纹全宽显示 */
+            }
+
+            .stripe {
+                width: 100%;            /* 每个条纹占据整个宽度 */
+            }
+
+            .background {
+                margin-top: 60px;       /* 增加上边距，避免重叠 */
+                padding-bottom: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="flag">
@@ -134,18 +132,6 @@ a:hover {
     <div class="background">首页已完成 这里才是真正的内容页
         <a href="a.html">导航</a>
     </div>
-    <script> //反正先不用了
-        //  将事件监听器直接添加到元素上，而不是通过 ID 获取
-        // document.getElementById("mailBtn").addEventListener("click", function() {
-        //     window.location.href = "mailto:kjkluk@yandex.com";
-        // });
-        // document.getElementById("xBtn").addEventListener("click", function() {
-        //     window.location.href = "https://x.com/kjkluk";
-        // });
-        // document.getElementById("tgBtn").addEventListener("click", function() {
-        //     window.location.href = "https://t.me/kawa1_kitsune";
-        // });
-    </script>
 </body>
 </html>
 
