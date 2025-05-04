@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普通物理学公式集-力学</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: pink;
+            color: #333;
+            line-height: 1.7;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        section h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        th {
+            background-color: #ecf0f1;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        td {
+            color: #34495e;
+        }
+        th:first-child, td:first-child {
+            padding-left: 20px;
+        }
+        th:last-child, td:last-child {
+            padding-right: 20px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        ul li::before {
+            content: '•';
+            color: #3498db;
+            margin-right: 10px;
+        }
+        ul li a {
+            color: #3498db;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        ul li a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            section h2 {
+                font-size: 1.5em;
+            }
+            main {
+                padding: 10px;
+            }
+            section {
+                padding: 20px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        .katex-display {
+            margin: 0.5em 0;
+            text-align: left;
+        }
+        .formula {
+            padding-left: 20px;
+        }
+        .indent {
+            padding-left: 40px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>普通物理学公式集--力学类</h1>
+    </header>
+    <main>
+        <section>
+            <h2>力学</h2>
+            <h3>运动学</h3>
+            <ul>
+                <li>位移: \(\Delta x\)</li>
+                <li>速度: \(v = \frac{dx}{dt}\)</li>
+                <li>加速度: \(a = \frac{dv}{dt}\)</li>
+                <li>等加速度运动:
+                    <ul style="list-style-type: disc;">
+                        <li class="indent">\(v = v_0 + at\)</li>
+                        <li class="indent">\(x = v_0t + \frac{1}{2}at^2\)</li>
+                        <li class="indent">\(v^2 = v_0^2 + 2ax\)</li>
+                    </ul>
+                </li>
+                <li>圆周运动:
+                    <ul style="list-style-type: disc;">
+                        <li class="indent">角速度: \(\omega = \frac{d\theta}{dt}\)</li>
+                        <li class="indent">向心加速度: \(a = \frac{v^2}{r} = r\omega^2\)</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>动力学</h3>
+            <ul>
+                <li>运动定律: \(F = ma\)  (牛顿第二定律)</li>
+                <li>动量: \(p = mv\)</li>
+                <li>冲量: \(I = \int F dt\)</li>
+                <li>动量守恒定律: \(\sum p_i = \sum p_f\)</li>
+                <li>功: \(W = \int F \cdot dr\)</li>
+                <li>动能: \(K = \frac{1}{2}mv^2\)</li>
+                <li>势能: \(U\) (取决于力场)</li>
+                <li>机械能守恒定律: \(E = K + U = 常数\)</li>
+                <li>功率: \(P = \frac{dW}{dt} = F \cdot v\)</li>
+            </ul>
+            <h3>振动和波动</h3>
+            <ul>
+                <li>单摆振动: \(x = A\cos(\omega t + \varphi)\)</li>
+                <li>单摆的周期: \(T = 2\pi\sqrt{\frac{l}{g}}\)</li>
+                <li>波的速度: \(v = \lambda f\)</li>
+                <li>波的公式: \(y = A\cos(\omega t - kx + \varphi)\)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>热力学</h2>
+            <ul>
+                <li>热力学第一定律: \(\Delta U = Q - W\)</li>
+                <li>理想气体状态方程: \(PV = nRT\)</li>
+                <li>卡诺循环效率: \(\eta = 1 - \frac{T_c}{T_h}\)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>电磁学</h2>
+            <h3>电磁学</h3>
+            <ul>
+                <li>库仑定律: \(F = k\frac{q_1q_2}{r^2}\)</li>
+                <li>电场: \(E = \frac{F}{q}\)</li>
+                <li>电势: \(\varphi = \frac{U}{q}\)</li>
+                <li>静电容量: \(C = \frac{Q}{U}\)</li>
+            </ul>
+            <h3>磁学</h3>
+            <ul>
+                <li>磁场: \(B\)</li>
+                <li>安培定律: \(F = BIL\sin\theta\)</li>
+                <li>洛伦兹力: \(f = qvB\sin\theta\)</li>
+                <li>法拉第电磁感应定律: \(\mathcal{E} = -\frac{d\Phi}{dt}\)</li>
+                <li>电感: \(L\)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>光学</h2>
+            <ul>
+                <li>折射定律: \(n_1\sin\theta_1 = n_2\sin\theta_2\)</li>
+                <li>透镜公式: \(\frac{1}{f} = \frac{1}{u} + \frac{1}{v}\)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>现代物理学</h2>
+            <ul>
+                <li>光电效应方程: \(E_k = h\nu - W\)</li>
+                <li>德布罗意波长: \(\lambda = \frac{h}{p}\)</li>
+                <li>不确定性原理: \(\Delta x \Delta p \ge \frac{\hbar}{2}\)</li>
+                <li>质能等价: \(E = mc^2\)</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 物理学公式集</p>
+    </footer>
+</body>
+</html>
+
