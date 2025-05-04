@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理论力学</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="https:// KaTeX.org/ KaTeX /dist/ KaTeX .min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #444;
+            text-indent: 0;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 5px;
+        }
+
+        .formula {
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .equation {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .MathJax_Display {
+            margin: 10px 0;
+            overflow-x: auto;
+            display: block;
+            text-align: center;
+            min-width: 100%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .formula, .equation {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>理论力学</h1>
+
+        <h2>静力学</h2>
+        <h3>力的基本概念</h3>
+        <ul>
+            <li><b>力</b>：物体间的相互作用，是物体运动状态改变的原因。</li>
+            <li><b>力的三要素</b>：大小、方向、作用点。</li>
+            <li><b>力的单位</b>：牛顿 (N)。</li>
+        </ul>
+        <h3>静力学公理</h3>
+        <ul>
+            <li>二力平衡公理：物体受两个力作用而处于平衡状态时，这两个力大小相等、方向相反、作用在同一直线上。</li>
+            <li>平行力系合成与分解公理：合力与分力作用效果相同。</li>
+            <li>加减平衡力系公理：在物体上加上或减去平衡力系，物体的平衡状态不变。</li>
+            <li>作用与反作用公理：作用力与反作用力大小相等、方向相反、作用在同一直线上。</li>
+        </ul>
+
+        <h3>力系的简化</h3>
+        <ul>
+            <li><b>力系的合成</b>：求若干个力的合力。</li>
+            <li><b>力系的分解</b>：将一个力分解为若干个分力。</li>
+            <li><b>力系的平衡条件</b>：物体受力系作用而处于平衡状态的条件。</li>
+                <ul style="list-style-type: none;">
+                    <li>\(\sum F_x = 0, \quad \sum F_y = 0, \quad \sum M_O = 0\)  (平面力系)</li>
+                    <li>\(\sum F_x = 0, \quad \sum F_y = 0, \quad \sum F_z = 0, \quad \sum M_x = 0, \quad \sum M_y = 0, \quad \sum M_z = 0\) (空间力系)</li>
+                </ul>
+        </ul>
+
+        <h2>运动学</h2>
+        <h3>质点运动学</h3>
+        <ul>
+            <li><b>位移</b>：质点位置的改变。</li>
+            <li><b>速度</b>：位移随时间的变化率。
+                <div class="equation">
+                    \[
+                    \mathbf{v} = \frac{d\mathbf{r}}{dt}
+                    \]
+                </div>
+            </li>
+            <li><b>加速度</b>：速度随时间的变化率。
+                 <div class="equation">
+                    \[
+                    \mathbf{a} = \frac{d\mathbf{v}}{dt} = \frac{d^2\mathbf{r}}{dt^2}
+                    \]
+                </div>
+            </li>
+            <li><b>运动方程</b>：描述质点位置随时间变化的方程。</li>
+        </ul>
+
+        <h3>刚体运动学</h3>
+        <ul>
+            <li><b>平动</b>：刚体中所有点运动轨迹相同。</li>
+            <li><b>转动</b>：刚体绕定轴转动。
+                <ul>
+                    <li><b>角位移</b>：刚体转过的角度。</li>
+                    <li><b>角速度</b>：角位移随时间的变化率。  \(\omega = \frac{d\theta}{dt}\)</li>
+                    <li><b>角加速度</b>：角速度随时间的变化率。 \(\alpha = \frac{d\omega}{dt} = \frac{d^2\theta}{dt^2}\)</li>
+                </ul>
+            </li>
+            <li><b>定轴转动</b>：刚体绕固定轴的转动。</li>
+            <li><b>平面运动</b>：刚体中各点的运动平行于某一固定平面。</li>
+        </ul>
+
+        <h2>动力学</h2>
+        <h3>质点动力学</h3>
+        <ul>
+            <li><b>牛顿定律</b>：
+                <ul>
+                    <li>第一定律：物体在不受外力作用时，保持静止或匀速直线运动状态。</li>
+                    <li>第二定律：物体加速度的大小与合外力成正比，与质量成反比，加速度的方向与合外力方向相同。
+                        <div class="equation">
+                            \[
+                            \mathbf{F} = m\mathbf{a}
+                            \]
+                        </div>
+                    </li>
+                    <li>第三定律：作用力与反作用力大小相等、方向相反、作用在同一直线上。</li>
+                </ul>
+            </li>
+            <li><b>动量</b>：物体质量与速度的乘积。 \(\mathbf{p} = m\mathbf{v}\)</li>
+            <li><b>冲量</b>：力对时间的积分。 \(\mathbf{I} = \int \mathbf{F} dt\)</li>
+            <li><b>动量定理</b>：物体动量的变化等于其所受合外力的冲量。
+                 <div class="equation">
+                     \[
+                     \mathbf{I} = \Delta \mathbf{p}
+                     \]
+                 </div>
+            </li>
+            <li><b>动量守恒定律</b>：系统不受外力或所受合外力为零时，系统总动量保持不变。</li>
+            <li><b>功</b>：力与位移的标量积。 \(W = \mathbf{F} \cdot \mathbf{s}\)</li>
+            <li><b>功率</b>：单位时间内所做的功。 \(P = \frac{dW}{dt} = \mathbf{F} \cdot \mathbf{v}\)</li>
+            <li><b>动能</b>：物体由于运动而具有的能量。 \(E_k = \frac{1}{2}mv^2\)</li>
+            <li><b>势能</b>：物体由于其在力场中的位置而具有的能量。</li>
+            <li><b>机械能守恒定律</b>：物体在保守力场中运动时，其动能和势能之和保持不变。</li>
+        </ul>
+
+        <h3>刚体动力学</h3>
+        <ul>
+            <li><b>转动惯量</b>：描述刚体转动时惯性大小的物理量。
+                 <div class="equation">
+                    \[
+                    J = \int r^2 dm
+                    \]
+                 </div>
+            </li>
+            <li><b>转动定律</b>：刚体绕定轴转动的加速度与所受合外力矩成正比，与转动惯量成反比。
+                 <div class="equation">
+                    \[
+                     M = J\alpha
+                     \]
+                 </div>
+            </li>
+            <li><b>角动量</b>：物体转动时动量的度量。 \(\mathbf{L} = \mathbf{r} \times \mathbf{p}\)</li>
+            <li><b>角动量守恒定律</b>：系统不受外力矩或所受合外力矩为零时，系统总角动量保持不变。</li>
+            <li><b>刚体转动的动能</b>：\(E_k = \frac{1}{2}J\omega^2\)</li>
+        </ul>
+
+        <h2>分析力学</h2>
+        <h3>拉格朗日方程</h3>
+        <p>
+            拉格朗日方程是分析力学中的重要方程，它提供了一种用广义坐标描述系统动力学行为的方法。
+        </p>
+        <div class="equation">
+             \[
+            \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_i} \right) - \frac{\partial L}{\partial q_i} = Q_i
+            \]
+        </div>
+        <p>
+            其中 \(L\) 是拉格朗日函数，\(q_i\) 是广义坐标，\(\dot{q}_i\) 是广义速度，\(Q_i\) 是广义力。
+        </p>
+
+        <h3>哈密顿方程</h3>
+         <p>
+            哈密顿方程是分析力学中描述物理系统演化的另一组重要方程。
+        </p>
+        <div class="equation">
+            \[
+            \frac{d p_i}{d t} = - \frac{\partial H}{\partial q_i}, \quad
+            \frac{d q_i}{d t} = \frac{\partial H}{\partial p_i}
+            \]
+        </div>
+        <p>
+           其中 \(H\) 是哈密顿函数，\(q_i\) 是广义坐标，\(p_i\) 是共轭动量。
+        </p>
+    </div>
+</body>
+</html>
+
