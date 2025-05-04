@@ -19,18 +19,19 @@
         }
         body, html {
             height: 100%;
+            margin: 0; /* 确保没有额外的margin */
         }
+
         /* 桌面（PC）布局 */
         .flag {
             display: grid;
             grid-template-columns: repeat(5, 1fr); /* 创建 5 列，均分宽度 */
             width: 100%;
-            min-height: 100vh;
+            min-height: 100vh; /* 确保至少占据整个视口高度 */
             font-size: xx-large;
             font-weight: bold;
             text-align: center;
-            align-items: center;
-            height: 800%;
+            align-items: center; /* 垂直居中条纹 */
         }
 
         .stripe {
@@ -39,7 +40,9 @@
             justify-content: center;
             padding: 10px;
             word-break: break-word;
+            width: 100%; /* 确保条纹占据整个列宽 */
         }
+
         .stripe-text {
             color: #32CD32;          /* 使用一种明确的绿色，比 light-green 更稳定 */
             padding: 10px;           /* 增加内边距 */
@@ -66,6 +69,7 @@
             margin-top: 20px;        /* 与上方区域分隔 */
             position: relative;
             z-index: 10;             /* 确保它不会被前面的内容遮挡 */
+            width: 100%; /* 确保背景占据整个宽度 */
         }
 
         /* 链接样式 */
