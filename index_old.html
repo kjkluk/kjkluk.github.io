@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出雲的站点</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全局设置，确保内外边距计算一致 */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans SC', sans-serif; /* 使用更现代的字体 */
+        }
+        body, html {
+            height: 100%;
+            margin: 0; /* 确保没有额外的margin */
+        }
+
+        /* 桌面（PC）布局 */
+        .flag {
+            display: flex; /* 使用 Flexbox 布局 */
+            flex-direction: row; /* 垂直排列条纹 */
+            width: 100%;
+            min-height: 100vh; /* 确保至少占据整个视口高度 */
+            font-size: xx-large;
+            font-weight: bold;
+            text-align: center;
+            align-items: stretch; /* 拉伸条纹以填充容器 */
+        }
+
+        .stripe {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            word-break: break-word;
+            width: 100%; /* 确保条纹占据整个宽度 */
+            flex: 1; /* 关键：使条纹平均分配剩余空间 */
+        }
+
+        .stripe-text {
+            color: #32CD32;          /* 使用一种明确的绿色，比 light-green 更稳定 */
+            padding: 10px;           /* 增加内边距 */
+        }
+
+        .blue {
+            background-color: #55CDFC;
+        }
+
+        .pink {
+            background-color: #F7A8B8;
+        }
+
+        .white {
+            background-color: #FFFFFF;
+            color: #F7A8B8;          /* 白色条纹上的文字颜色 */
+        }
+
+        .background {
+            background-color: #F7A8B8;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;        /* 与上方区域分隔 */
+            position: relative;
+            z-index: 10;             /* 确保它不会被前面的内容遮挡 */
+            width: 100%; /* 确保背景占据整个宽度 */
+        }
+
+        /* 链接样式 */
+        a {
+            text-decoration: none;
+            color: #ffff00;
+            transition: color 0.3s ease;  /* 添加过渡效果 */
+        }
+
+        a:visited {
+            color: #ffff00;
+        }
+
+        a:hover {
+            color: #ffeb3b;          /* Hover 时轻微改变颜色 */
+        }
+
+        /* 移动端调整 */
+        @media (max-width: 768px) {
+            .flag {
+                flex-direction: column; /* 水平排列 */
+                flex-wrap: nowrap;
+                align-items: stretch;   /* 条纹全宽显示 */
+            }
+
+            .stripe {
+                width: 100%;            /* 每个条纹占据整个宽度 */
+            }
+
+            .background {
+                margin-top: 60px;       /* 增加上边距，避免重叠 */
+                padding-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flag">
+        <div class="stripe blue">
+            <div class="stripe-text">你好，欢迎来到出雲的站点。</div>
+        </div>
+        <div class="stripe pink">
+            <div class="stripe-text">
+                ssh -X guest@kitsune.qwq.io
+            </div>
+        </div>
+        <div class="stripe white">
+            <div class="stripe-text">
+                eMail me ✉️ at <a href="mailto:kjkluk@hotmail.com">kjkluk@hotmail.com</a>
+                or <a href="mailto:kjkluk@yandex.ru">kjkluk@yandex.ru</a>
+            </div>
+        </div>
+        <div class="stripe pink">
+            <div class="stripe-text">
+                这是我的<a href="https://x.com/kjkluk">X（Twitter）</a>
+            </div>
+        </div>
+        <div class="stripe blue">
+            <div class="stripe-text">
+                这是我的<a href="https://t.me/kjkluk">Telegram</a>
+            </div>
+        </div>
+    </div>
+    <div class="background">首页已完成 这里才是真正的内容页
+        <a href="a.html">导航</a>
+    </div>
+</body>
+</html>
