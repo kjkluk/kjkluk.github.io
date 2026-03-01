@@ -1,407 +1,52 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>初等物理学公式集</title>
-
-  <!-- MathJax (LaTeX) -->
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
-      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <style>
-    :root{
-      --bg:#f5f7fb;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --link:#2563eb;
-      --shadow:0 1px 3px rgba(0,0,0,.06);
-      --radius:12px;
-    }
-
-    html{ scroll-behavior:smooth; }
-
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.7;
-    }
-
-    a{ color:var(--link); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-
-    .container{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 18px 14px 40px;
-    }
-
-    .page-nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      margin: 10px 0 14px;
-      padding: 12px 14px;
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      font-size:.95rem;
-    }
-    .page-nav .left, .page-nav .right{
-      display:flex; gap:12px; align-items:center;
-      flex-wrap:wrap;
-    }
-    .page-nav a{ font-weight:600; }
-
-    .toc{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px 18px;
-      margin: 0 0 18px;
-    }
-    .toc h2{
-      margin:0 0 10px;
-      font-size:1.05rem;
-      color:#1f2937;
-    }
-    .toc ul{
-      margin:0;
-      padding-left: 1.1rem;
-    }
-    .toc li{ margin: 6px 0; }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px 18px;
-      margin: 0 0 14px;
-    }
-
-    h1{
-      font-size: 1.9rem;
-      margin: 14px 0 6px;
-      line-height:1.25;
-    }
-    .subtitle{
-      color:var(--muted);
-      margin: 0 0 10px;
-      font-size:.98rem;
-    }
-
-    h2{
-      margin: 18px 0 10px;
-      font-size: 1.25rem;
-      padding-top: 8px; /* for anchor landing */
-    }
-    h3{
-      margin: 12px 0 8px;
-      font-size: 1.05rem;
-      color:#1f2937;
-    }
-
-    .lines{ margin:0; }
-    .line{ margin: 6px 0; }
-    .bullet{ color:#0f172a; font-weight:600; margin-right:6px; }
-    .subbullet{ color:#334155; font-weight:600; margin-right:6px; }
-
-    .backtop{
-      margin-top: 10px;
-      font-size:.92rem;
-      color:var(--muted);
-    }
-
-    @media (max-width: 720px){
-      .page-nav{ flex-direction:column; align-items:flex-start; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics</title>
 </head>
-
 <body>
-  <div class="container">
-
-    <div class="page-nav">
-      <div class="left">
-        <a href="a.html">← 返回导航</a>
-        <a href="index.html">回首页</a>
-      </div>
-      <div class="right">
-        <a href="#top">回到顶部 ↑</a>
-      </div>
-    </div>
-
-    <div id="top" class="card">
-      <h1>初等物理学公式集</h1>
-      <div class="subtitle">可直接查阅的公式与常见结论（含 LaTeX 渲染）。</div>
-
-      <div class="toc">
-        <h2>本页目录</h2>
-        <ul>
-          <li><a href="#mechanics">古典力学</a></li>
-          <li><a href="#thermo">热力学</a></li>
-          <li><a href="#waves">波动</a></li>
-          <li><a href="#circuits">电路</a></li>
-          <li><a href="#electrostatics">静电・电场</a></li>
-          <li><a href="#electromagnetism">电磁学</a></li>
-          <li><a href="#quantum">量子力学</a></li>
-          <li><a href="#nuclear">原子核物理学</a></li>
-        </ul>
-      </div>
-
-      <div class="backtop">提示：点击目录可跳到对应章节。</div>
-    </div>
-
-    <!-- 古典力学 -->
-    <section class="card">
-      <h2 id="mechanics">古典力学</h2>
-
-      <h3>速度・加速度</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>速度</div>
-        <div class="line"><span class="subbullet">○</span>距离 \(x(m)\) 经过时间 \(t(s)\) 匀速直线运动物体速度 \(v(m/s)\): \(v=\frac{x}{t}\)</div>
-        <div class="line"><span class="subbullet">○</span>时刻 \(t(s)\) 位移 \(x(m)\) 物体平均速度 \(\overline{v}(m/s)\): \(\overline{v}=\frac{\Delta x}{\Delta t}=\frac{x_{2}-x_{1}}{t_{2}-t_{1}}\)</div>
-        <div class="line"><span class="subbullet">○</span>时刻 \(t(s)\) 位移 \(x(m)\) 物体瞬间速度 \(v(m/s)\): \(v=\frac{dx}{dt}=lim_{\Delta t\rightarrow0}\frac{\Delta x}{\Delta t}=lim_{t_{2}\rightarrow t_{1}}\frac{x_{2}-x_{1}}{t_{2}-t_{1}}\)</div>
-        <div class="line"><span class="subbullet">○</span>A 对 B 相対速度: \(\vec{v_{A}}_{B}=\vec{v_{B}}-\vec{v_{A}}\)</div>
-      </div>
-
-      <h3>运动定律</h3>
-      <div class="lines">
-        <div class="line">\(\sum_{i}\vec{F_{i}}=\vec{0}\) (力的平衡)</div>
-        <div class="line">\(\sum_{i}\vec{F_{i}}=\vec{0}\iff\vec{a}=\vec{0}\) (惯性定律、运动第一定律)</div>
-        <div class="line">\(\vec{a}=k\frac{\vec{F}}{m}\) (运动定律、运动第二定律)</div>
-        <div class="line">\(m\vec{a}=\vec{F}\) (运动方程式)</div>
-        <div class="line">\(\vec{F}+\vec{F^{\prime}}=\vec{0}\) (作用・反作用定律、运动第三定律)</div>
-      </div>
-
-      <h3>摩擦力</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>静止摩擦系数 \(\mu\)、正压力 \(N\) 的物体上作用的最大静止摩擦力 \(F_{max}\): \(F_{max}=\mu N\)</div>
-        <div class="line"><span class="bullet">•</span>动摩擦系数 \(\mu^{\prime}\)、垂直抗力 \(N\) 的物体上作用的动摩擦力 \(F^{\prime}\): \(F^{\prime}=\mu^{\prime}N\)</div>
-        <div class="line"><span class="bullet">•</span>摩擦角 \(\theta\) 时的静止摩擦係数 \(\mu\): \(\mu=tan~\theta\)</div>
-      </div>
-
-      <h3>浮力</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>大气压为 \(p_{0}\) 时，密度为 \(\rho\) 的水中深度为 \(h\) 的物体所受到的水压: \(p=p_{0}+\rho gh\)</div>
-        <div class="line"><span class="bullet">•</span>体积为 \(V\) 的物体在密度为 \(\rho\) 的水中所受到的浮力: \(F=\rho Vg\) (阿基米德原理)</div>
-      </div>
-
-      <h3>科里奥利力</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>速度为 \(\vec{v}\)、角速度为 \(\omega\) 的旋转物体，质量为 \(m\)，受到的科里奥利力为 \(\vec{F}\): \(\vec{F}=2m\vec{v}\omega\)</div>
-      </div>
-
-      <h3>刚体</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>\(\vec{M} = \vec{F} \times \vec{l}\) (力矩)</div>
-        <div class="line"><span class="bullet">•</span>\((x_{G},y_{G},z_{G})=(\sum_{k}\frac{m_{k}x_{k}}{x_{k}},\sum_{k}\frac{m_{k}y_{k}}{y_{k}},\sum_{k}\frac{m_{k}z_{k}}{z_{k}})\) (重心)</div>
-        <div class="line"><span class="bullet">•</span>\(\sum_{i}\vec{F_{i}}=\vec{0}\wedge\sum_{i}M_{i}=0\) (刚体静止的条件)</div>
-      </div>
-
-      <h3>开普勒定律</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>同一行星到焦点的距离 \(r_{1}, r_{2}\). 切线速度 \(\vec{v_{1}}, \vec{v_{2}}\): \(\frac{1}{2}r_{1}v_{1}sin~\theta_{1}=\frac{1}{2}r_{2}v_{2}sin~\theta_{2}\) (第二定律、面积速度不变定律)</div>
-        <div class="line"><span class="bullet">•</span>行星的公转周期 \(T\)、长半轴 \(a\): \(T^{2}=ka^{3}\Leftrightarrow\frac{T^{2}}{a^{3}}=k\) (第三定律、调和定律)</div>
-      </div>
-
-      <h3>万有引力定律</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>质量 \(M_{1}m\). 距离 \(r\) 的物体间受到的万有引力 \(F\): \(F=G\frac{Mm}{r^{2}}\) (G 为万有引力常数)</div>
-        <div class="line"><span class="bullet">•</span>重力场: \(\begin{cases}g=G\frac{m}{r^{2}}\\ F=mg\end{cases}\)</div>
-        <div class="line"><span class="bullet">•</span>重力质量与惯性质量的等效性: \(a=g\)</div>
-        <div class="line"><span class="bullet">•</span>落体运动: \(\begin{cases}x=v_{x0}t+x_{0}\\ y=\frac{1}{2}gt^{2}+v_{y0}t+y_{0}\end{cases}\), \(v=gt+v_{0}\)</div>
-        <div class="line"><span class="bullet">•</span>空气阻力比例常数为 \(k\) 时的最终速度: \(v_{f}=\frac{mg}{k}\)</div>
-        <div class="line"><span class="bullet">•</span>位能: \(E_{\phi}=-\frac{GMm}{r}\)</div>
-        <div class="line"><span class="bullet">•</span>第一宇宙速度: \(7.91~km/s\)</div>
-        <div class="line"><span class="bullet">•</span>第二宇宙速度: \(11.2~km/s\)</div>
-        <div class="line"><span class="bullet">•</span>第三宇宙速度: \(16.7~km/s\)</div>
-      </div>
-
-      <h3>等速圆周运动</h3>
-      <div class="lines">
-        <div class="line">\(\begin{cases}x=r~cos~\omega t\\ y=r~sin~\omega t\end{cases}\), \(v=r\omega\), \(a=r\omega^{2}\)</div>
-        <div class="line">\(T=\frac{2\pi}{\omega}\) (周期), \(F=-kx\) (弹性力), \(E=\frac{1}{2}kx^{2}\) (弹性势能)</div>
-        <div class="line">\(\omega=\sqrt{\frac{k}{m}}\) (单振动的角速度), \(f=\frac{1}{T}\) (单振动的频率), \(x=A~sin~\omega t\) (单振动的位移)</div>
-        <div class="line">\(\omega\simeq\sqrt{\frac{g}{l}}\) (单摆的角速度), \(\vec{F}=-m\omega^{2}\vec{x}\) (回复力)</div>
-        <div class="line"><span class="bullet">•</span>角速度为 \(\omega\) 的旋转物体，质量为 \(m\)，到旋转中心的距离为 \(r\) 时的离心力为 \(\vec{F}\): \(\vec{F}=m\vec{r}\omega^{2}\)</div>
-      </div>
-
-      <h3>力学守恒量</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>\(\vec{p}=m\vec{v}\) (动量)</div>
-        <div class="line"><span class="bullet">•</span>\(m\Delta\vec{v}=\vec{f}\Delta t\) (冲量)</div>
-        <div class="line"><span class="bullet">•</span>\(\sum_{i}\frac{m_{i}\vec{v_{i}}}{dt}=0\) (动量守恒)</div>
-        <div class="line"><span class="bullet">•</span>\(E_{v}=\frac{1}{2}m|\vec{v}|^{2}\) (动能)</div>
-        <div class="line"><span class="bullet">•</span>\(\sum_{i}\frac{E_{vi}+E_{\phi i}}{dt}=0\) (力学能守恒定律)</div>
-        <div class="line"><span class="bullet">•</span>\(e=-\frac{v_{1}^{\prime}-v_{2}^{\prime}}{v_{1}-v_{2}}\) (反弹系数)</div>
-      </div>
-
-      <h3>功和能量</h3>
-      <div class="lines">
-        <div class="line">\(W=\vec{F}\cdot\vec{x}=|\vec{F}||\vec{x}|cos~\theta\) (功)</div>
-        <div class="line">\(P=\frac{dW}{dt}\) (功率、瓦特)</div>
-        <div class="line">\(\Delta\vec{p}=\vec{f}\Delta t\) (动量定理)</div>
-        <div class="line">\(\Delta E=W\) (能量原理)</div>
-      </div>
-
-      <div class="backtop"><a href="#top">回到顶部 ↑</a></div>
-    </section>
-
-    <!-- 热力学 -->
-    <section class="card">
-      <h2 id="thermo">热力学</h2>
-
-      <h3>热力学</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>绝对温度: \(T=t+273\)</div>
-        <div class="line"><span class="bullet">•</span>线膨胀: \(L_{t}=L_{0}(1+\alpha t)\) (\(L_{0}\) 为 0℃ 时的长度，\(\alpha\) 为线膨胀系数)</div>
-        <div class="line"><span class="bullet">•</span>体膨胀: \(V_{t}=V_{0}(1+\beta t)\) (\(V_{0}\) 为 0℃ 时的体积，\(\beta\) 为体膨胀系数)</div>
-        <div class="line"><span class="bullet">•</span>热膨胀关系式: 当 \(|\Delta t|\) 不太大时，\(\beta=3\alpha\)</div>
-      </div>
-
-      <h3>气体</h3>
-      <div class="lines">
-        <div class="line">以下对于理想气体。</div>
-        <div class="line"><span class="bullet">•</span>气体的压强: \(P=\frac{F}{S}\)</div>
-        <div class="line"><span class="bullet">•</span>气体的功: \(E=P\Delta V\)</div>
-        <div class="line"><span class="bullet">•</span>阿伏加德罗数: \(N_{0}=6.02214076\times10^{23}\)</div>
-        <div class="line"><span class="bullet">•</span>气体定数: \(R=8.31kJ/(mol\cdot k)\)</div>
-        <div class="line"><span class="bullet">•</span>波尔兹曼定数: \(k=\frac{R}{N_{0}}=1.38\times10^{-23}J/K\)</div>
-        <div class="line"><span class="bullet">•</span>气体的状态方程: \(PV=nRT\)</div>
-        <div class="line"><span class="bullet">•</span>单原子分子理想气体的内能: \(U=\frac{3}{2}nRT\)</div>
-        <div class="line"><span class="bullet">•</span>分压强和总压强的关系式: \(P=\sum_{i}P_{i}=\sum_{i}\frac{n_{i}RT}{V}\)</div>
-      </div>
-
-      <h3>気体分子運動論</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>\(N\) 个分子的碰撞产生的压强: \(p=\frac{Nm\overline{v^{2}}}{3V}\)</div>
-        <div class="line"><span class="bullet">•</span>动能和热能: \(\frac{1}{2}m\overline{v^{2}}=\frac{3}{2}kT\)</div>
-        <div class="line"><span class="bullet">•</span>分子的均方根速度: \(\overline{v^{2}}=\frac{3RT}{N_{A}m}\)</div>
-      </div>
-
-      <h3>热量和热机</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>比热: \(Q=mc\Delta T\)</div>
-        <div class="line"><span class="bullet">•</span>热容量: \(C=mc\)</div>
-        <div class="line"><span class="bullet">•</span>比热比: \(\gamma=\frac{C_{p}}{C_{V}}\)</div>
-        <div class="line"><span class="bullet">•</span>气体的摩尔比热: \(\frac{dQ}{ndT}=C\)</div>
-        <div class="line"><span class="bullet">•</span>热能守恒: \(\Delta Q=\Delta U+\Delta W\)</div>
-        <div class="line"><span class="bullet">•</span>定压摩尔比热和定容摩尔比热之差: \(C_{P}-C_{V}=R\) (麦耶关系式)</div>
-        <div class="line"><span class="bullet">•</span>转换热量和 P-V 图的面积: \(\Delta Q=\int\Delta P(V)dV\)</div>
-        <div class="line"><span class="bullet">•</span>封闭系统的内能变化: \(\Delta U=\Delta Q-\Delta W\) (热力学第一定律)</div>
-        <div class="line"><span class="bullet">•</span>泊松定律: \(pV^{\gamma}=const.\), \(TV^{\gamma-1}=const.\)</div>
-        <div class="line"><span class="bullet">•</span>热效率: \(\eta=\frac{W}{Q}=\frac{Q_{in}-Q_{out}}{Q_{in}}\)</div>
-        <div class="line"><span class="bullet">•</span>热力学第二定律: \(\eta<1\)</div>
-      </div>
-
-      <div class="backtop"><a href="#top">回到顶部 ↑</a></div>
-    </section>
-
-    <!-- 波动 -->
-    <section class="card">
-      <h2 id="waves">波动</h2>
-
-      <h3>波动</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>横波: 振动方向与传播方向垂直</div>
-        <div class="line"><span class="bullet">•</span>纵波: 振动方向与传播方向平行</div>
-        <div class="line"><span class="bullet">•</span>波形公式: \(y=A~sin\{2\pi(\frac{t}{T}-\frac{x}{\lambda})+\phi\}\)</div>
-        <div class="line"><span class="bullet">•</span>频率为 \(f(Hz)\)、周期为 \(T(s)\) 时: \(f=\frac{1}{T}\)</div>
-        <div class="line"><span class="bullet">•</span>频率为 \(f(Hz)\)、波长为 \(\lambda(m)\) 时，波的速度 \(v(m/s)\): \(v=f\lambda=\frac{\lambda}{T}\)</div>
-        <div class="line"><span class="bullet">•</span>叠加原理: \(Y=y_{1}+y_{2}\)</div>
-        <div class="line"><span class="bullet">•</span>干涉相长: \(|l_{1}-l_{2}|=m\lambda\)</div>
-        <div class="line"><span class="bullet">•</span>干涉相消: \(|l_{1}-l_{2}|=(m+\frac{1}{2})\lambda\)</div>
-        <div class="line"><span class="bullet">•</span>入射角为 \(i(rad)\)，入射波速度和波长为 \(v_{i}(m/s)\)、\(\lambda_{i}(m)\)，折射角为 \(r(rad)\)，折射波速度和波长为 \(v_{r}(m/s)\) \(\lambda_{r}(m)\) 时，折射率 \(n\): \(\frac{sin~i}{sin~r}=\frac{v_{i}}{v_{r}}=\frac{\lambda_{i}}{\lambda_{r}}=n\) (斯涅耳定律、折射定律)</div>
-      </div>
-
-      <h3>多普勒效应</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>波的速度 \(V(m/s)\), 观测者速度 \(v_{o}(m/s)\) (接近时为正), 声源速度 \(v_{s}(m/s)\) (接近时为正), 原始频率 \(f(Hz)\) 时观测到的频率 \(f^{\prime}(Hz)\): \(f^{\prime}=\frac{V-v_{o}}{V-v_{s}}f\)</div>
-      </div>
-
-      <h3>声音</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>无风时的音速: \(v_{t}=331.5+0.6t\)</div>
-        <div class="line"><span class="bullet">•</span>拍频: \(f=|f_{1}-f_{2}|\)</div>
-        <div class="line"><span class="bullet">•</span>弦、两端封闭、两端开放气柱的振动: \(\lambda_{n}=\frac{2l}{n}\)</div>
-        <div class="line"><span class="bullet">•</span>一端开放气柱的振动: \(\lambda_{n}=\frac{4l}{2n-1}\)</div>
-        <div class="line"><span class="bullet">•</span>弦的振动频率: \(f\propto\sqrt{\frac{F}{\rho}}\)</div>
-        <div class="line"><span class="bullet">•</span>固有振动: \(f_{m}=\frac{v}{\lambda_{m}}=\frac{mv}{2L}\)</div>
-        <div class="line"><span class="bullet">•</span>弦上传播的波: \(v=\sqrt{\frac{|\vec{S}|}{\rho}}\) (S 为弦的张力、\(\rho\) 为弦的线密度)</div>
-        <div class="line"><span class="bullet">•</span>多普勒效应: \(f^{\prime}=\frac{|\vec{V}+\vec{w}-\vec{v_{o}}|}{|\vec{V}+\vec{w}-\vec{v_{s}}|}f\) (\(|\vec{V}|\) 为声波的速度、\(\vec{w}\) 为风的速度、\(\vec{v_{o}}\) 为观测者的速度、\(\vec{v_{s}}\) 为声源的速度)</div>
-      </div>
-
-      <h3>光</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>真空中的光速 (定义值): \(c=299~792~458~m/s\approx3.0\times10^{8}m/s\)</div>
-        <div class="line"><span class="bullet">•</span>絶対屈折率: \(n=\frac{c}{v}\)</div>
-        <div class="line"><span class="bullet">•</span>全反射的条件: \(sin~\theta_{c}>n_{12}\)</div>
-        <div class="line"><span class="bullet">•</span>光程长: \(L=nl\)</div>
-        <div class="line"><span class="bullet">•</span>增强衍射的条件 (无波长偏移): \(d~sin~\theta=m\lambda\)</div>
-        <div class="line"><span class="bullet">•</span>减弱衍射的条件 (无波长偏移): \(d~sin~\theta=(m+\frac{1}{2})\lambda\)</div>
-        <div class="line">透镜和镜的成像公式: \(\frac{1}{a}+\frac{1}{b}=\frac{1}{f}\) (成像公式), \(m=|\frac{b}{a}|\) (放大率)</div>
-      </div>
-
-      <div class="backtop"><a href="#top">回到顶部 ↑</a></div>
-    </section>
-
-    <!-- 电路 -->
-    <section class="card">
-      <h2 id="circuits">电路</h2>
-
-      <h3>电流・电压・电阻</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>电流的强度 \(I(A)\)、电压 \(v(v)\) 电阻 \(R(\Omega)\): \(I=\frac{V}{R}\Leftrightarrow V=RI\Leftrightarrow R=\frac{V}{I}\) (欧姆定律)</div>
-        <div class="line">\(\begin{cases}\sum_{i}I_{i}=0\\ \sum_{i}V_{i}=0\end{cases}\) (基尔霍夫定律)</div>
-        <div class="line"><span class="bullet">•</span>电阻: \(\rho_{t}=\rho_{0}(1+\alpha t)\) (电阻率的温度变化), \(R=\rho\frac{l}{S}\) (形状和电阻值)</div>
-        <div class="line"><span class="bullet">•</span>合成电阻: \(R=\sum_{i}R_{i}\) (串联电路的合成电阻), \(\frac{1}{R}=\sum_{i}\frac{1}{R_{i}}\) (并联电路的合成电阻)</div>
-        <div class="line"><span class="bullet">•</span>惠斯通电桥的平衡条件: \(R_{1}R_{4}=R_{2}R_{3}\Leftrightarrow\frac{R_{1}}{R_{3}}V=\frac{R_{2}}{R_{4}}V\)</div>
-        <div class="line"><span class="bullet">•</span>消耗功率: \(P=I^{2}R=VI=\frac{V^{2}}{R}\)</div>
-        <div class="line"><span class="bullet">•</span>焦耳定律: \(E=Pt=VIt\)</div>
-      </div>
-
-      <h3>电容器</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>\(Q=CV\) (电容器的电容)</div>
-        <div class="line"><span class="bullet">•</span>\(W=\frac{1}{2}CV^{2}\) (电容器的能量)</div>
-        <div class="line"><span class="bullet">•</span>\(\sum_{i}Q_{i}=\sum_{i}Q_{i}^{\prime}\) (电荷守恒定律)</div>
-        <div class="line"><span class="bullet">•</span>\(C_{0}=\epsilon_{0}\frac{S}{d}\) (真空平行板电容器的电容)</div>
-        <div class="line"><span class="bullet">•</span>\(\epsilon_{0}=8.85\times10^{-12}F/m\) (真空介电常数)</div>
-        <div class="line"><span class="bullet">•</span>\(\epsilon_{r}=\frac{C}{C_{0}}=\frac{\epsilon}{\epsilon_{0}}\) (相对介电常数)</div>
-        <div class="line"><span class="bullet">•</span>\(C=\epsilon\frac{S}{d}=\epsilon_{0}\epsilon_{r}\frac{S}{d}\) (介电常数为 \(\epsilon\) 的绝缘材料填充的平行板电容器的电容)</div>
-        <div class="line"><span class="bullet">•</span>合成电容: \(\frac{1}{C}=\sum_{i}\frac{1}{C_{i}}\) (串联电容的合成), \(C=\sum_{i}C_{i}\) (并联电容的合成)</div>
-        <div class="line"><span class="bullet">•</span>电容器的消耗功率: \(P=0\)</div>
-      </div>
-
-      <h3>线圈</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>\(U=\frac{1}{2}LI^{2}\) (线圈的能量)</div>
-        <div class="line"><span class="bullet">•</span>合成电感: \(L=\sum_{i}L_{i}\) (串联电感的合成), \(\frac{1}{L}=\sum_{i}\frac{1}{L_{i}}\) (并联电感的合成)</div>
-        <div class="line"><span class="bullet">•</span>线圈的消耗功率: \(P=0\)</div>
-        <div class="line"><span class="bullet">•</span>自感应: \(V_{L}=-L\frac{dI}{dt}\)</div>
-        <div class="line"><span class="bullet">•</span>互感应: \(V_{M}=-M\frac{dI}{dt}\)</div>
-      </div>
-
-      <h3>交流电路</h3>
-      <div class="lines">
-        <div class="line"><span class="bullet">•</span>交流波形: \(V(t)=V_{max}sin~\omega t\)</div>
-        <div class="line"><span class="bullet">•</span>有效电压: \(V_{e}=\frac{1}{\sqrt{2}}V_{max}\)</div>
-        <div class="line"><span class="bullet">•</span>有效电流: \(I_{e}=\frac{1}{\sqrt{2}}I_{max}\)</div>
-        <div class="line"><span class="bullet">•</span>容抗: \(X_{C} = \frac{1}{\omega C}\)</div>
-        <div class="line"><span class="bullet">•</span>感抗: \(X_{L} = \omega L\)</div>
-        <div class="line"><span class="bullet">•</span>串联阻抗: \(Z = \sqrt{R^2 + (X_L - X_C)^2}\)</div>
-        <div class="line"><span class="bullet">•</span>并联阻抗: \(\frac{1}{Z} = \sqrt{\frac{1}{R^2} + (\frac{1}{X_L} - \frac{1}{X_C})^2}\)</
+    <h1>Physics</h1>
+    ...
+    <h2>重心</h2>
+    <p>
+        公式：\((x_{G},y_{G},z_{G})=\left(\frac{\sum_{k}m_{k}x_{k}}{\sum_{k}m_{k}},\frac{\sum_{k}m_{k}y_{k}}{\sum_{k}m_{k}},\frac{\sum_{k}m_{k}z_{k}}{\sum_{k}m_{k}}\right)\) (重心)
+    </p>
+    ...
+    <h2>动量守恒</h2>
+    <p>
+        公式：\(\frac{d}{dt}\left(\sum_{i} m_{i}\vec{v_{i}}\right)=0\) (动量守恒)
+    </p>
+    ...
+    <h2>科里奥利力</h2>
+    <p>
+        公式：\(\vec{F}_{c}=-2m(\vec{\Omega}\times\vec{v})\) (科里奥利力)
+    </p>
+    ...
+    <h2>气体定数 R</h2>
+    <p>
+        气体定数: \(R=8.314 \, J/(mol\cdot K)\)
+    </p>
+    ...
+    <h2>P-V 图</h2>
+    <p>
+        P-V 图下的面积对应气体对外做功: \(W=\int P \, dV\) (准静态过程)
+    </p>
+    ...
+    <h2>折射定律</h2>
+    <p>
+        折射定律: \(n_{1}\sin i = n_{2}\sin r,\ \frac{\sin i}{\sin r}=\frac{n_{2}}{n_{1}}=\frac{v_{1}}{v_{2}}=\frac{\lambda_{1}}{\lambda_{2}}\)
+    </p>
+    ...
+    <h2>全反射条件</h2>
+    <p>
+        全反射条件: \(n_{1}>n_{2},\ \sin\theta_{c}=\frac{n_{2}}{n_{1}}\)
+    </p>
+    ...
+    <h2>多普勒效应</h2>
+    <p>
+        多普勒效应(一维): \(f' = f\frac{V\pm v_{o}}{V\mp v_{s}}\)  （上号：相互接近；下号：相互远离）。
+    </p>
+    ...
+</body>
+</html>
