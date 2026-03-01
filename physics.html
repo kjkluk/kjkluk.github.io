@@ -174,8 +174,8 @@
         <div class="line"><span class="bullet">•</span>速度</div>
         <div class="line"><span class="subbullet">○</span>距离 \(x(m)\) 经过时间 \(t(s)\) 匀速直线运动物体速度 \(v(m/s)\): \(v=\frac{x}{t}\)</div>
         <div class="line"><span class="subbullet">○</span>时刻 \(t(s)\) 位移 \(x(m)\) 物体平均速度 \(\overline{v}(m/s)\): \(\overline{v}=\frac{\Delta x}{\Delta t}=\frac{x_{2}-x_{1}}{t_{2}-t_{1}}\)</div>
-        <div class="line"><span class="subbullet">○</span>时刻 \(t(s)\) 位移 \(x(m)\) 物体瞬间速度 \(v(m/s)\): \(v=\frac{dx}{dt}=lim_{\Delta t\rightarrow0}\frac{\Delta x}{\Delta t}=lim_{t_{2}\rightarrow t_{1}}\frac{x_{2}-x_{1}}{t_{2}-t_{1}}\)</div>
-        <div class="line"><span class="subbullet">○</span>A 对 B 相対速度: \(\vec{v_{A}}_{B}=\vec{v_{B}}-\vec{v_{A}}\)</div>
+        <div class="line"><span class="subbullet">○</span>时刻 \(t(s)\) 位移 \(x(m)\) 物体瞬间速度 \(v(m/s)\): \(v=\frac{dx}{dt}=\lim_{\Delta t\rightarrow0}\frac{\Delta x}{\Delta t}=\lim_{t_{2}\rightarrow t_{1}}\frac{x_{2}-x_{1}}{t_{2}-t_{1}}\)</div>
+        <div class="line"><span class="subbullet">○</span>A 对 B 相对速度: \(\vec{v_{A/B}}=\vec{v_{A}}-\vec{v_{B}}\)</div>
       </div>
 
       <h3>运动定律</h3>
@@ -191,7 +191,7 @@
       <div class="lines">
         <div class="line"><span class="bullet">•</span>静止摩擦系数 \(\mu\)、正压力 \(N\) 的物体上作用的最大静止摩擦力 \(F_{max}\): \(F_{max}=\mu N\)</div>
         <div class="line"><span class="bullet">•</span>动摩擦系数 \(\mu^{\prime}\)、垂直抗力 \(N\) 的物体上作用的动摩擦力 \(F^{\prime}\): \(F^{\prime}=\mu^{\prime}N\)</div>
-        <div class="line"><span class="bullet">•</span>摩擦角 \(\theta\) 时的静止摩擦係数 \(\mu\): \(\mu=tan~\theta\)</div>
+        <div class="line"><span class="bullet">•</span>摩擦角 \(\theta\) 时的静止摩擦係数 \(\mu\): \(\mu=\tan\theta\)</div>
       </div>
 
       <h3>浮力</h3>
@@ -208,13 +208,13 @@
       <h3>刚体</h3>
       <div class="lines">
         <div class="line"><span class="bullet">•</span>\(\vec{M} = \vec{F} \times \vec{l}\) (力矩)</div>
-        <div class="line"><span class="bullet">•</span>\((x_{G},y_{G},z_{G})=(\sum_{k}\frac{m_{k}x_{k}}{x_{k}},\sum_{k}\frac{m_{k}y_{k}}{y_{k}},\sum_{k}\frac{m_{k}z_{k}}{z_{k}})\) (重心)</div>
+        <div class="line"><span class="bullet">•</span>\((x_{G},y_{G},z_{G})=(\frac{\sum_{k}m_{k}x_{k}}{\sum_{k}m_{k}},\frac{\sum_{k}m_{k}y_{k}}{\sum_{k}m_{k}},\frac{\sum_{k}m_{k}z_{k}}{\sum_{k}m_{k}})\) (重心)</div>
         <div class="line"><span class="bullet">•</span>\(\sum_{i}\vec{F_{i}}=\vec{0}\wedge\sum_{i}M_{i}=0\) (刚体静止的条件)</div>
       </div>
 
       <h3>开普勒定律</h3>
       <div class="lines">
-        <div class="line"><span class="bullet">•</span>同一行星到焦点的距离 \(r_{1}, r_{2}\). 切线速度 \(\vec{v_{1}}, \vec{v_{2}}\): \(\frac{1}{2}r_{1}v_{1}sin~\theta_{1}=\frac{1}{2}r_{2}v_{2}sin~\theta_{2}\) (第二定律、面积速度不变定律)</div>
+        <div class="line"><span class="bullet">•</span>同一行星到焦点的距离 \(r_{1}, r_{2}\). 切线速度 \(\vec{v_{1}}, \vec{v_{2}}\): \(\frac{1}{2}r_{1}v_{1}\sin\theta_{1}=\frac{1}{2}r_{2}v_{2}\sin\theta_{2}\) (第二定律、面积速度不变定律)</div>
         <div class="line"><span class="bullet">•</span>行星的公转周期 \(T\)、长半轴 \(a\): \(T^{2}=ka^{3}\Leftrightarrow\frac{T^{2}}{a^{3}}=k\) (第三定律、调和定律)</div>
       </div>
 
@@ -233,9 +233,9 @@
 
       <h3>等速圆周运动</h3>
       <div class="lines">
-        <div class="line">\(\begin{cases}x=r~cos~\omega t\\ y=r~sin~\omega t\end{cases}\), \(v=r\omega\), \(a=r\omega^{2}\)</div>
+        <div class="line">\(\begin{cases}x=r\cos\omega t\\ y=r\sin\omega t\end{cases}\), \(v=r\omega\), \(a=r\omega^{2}\)</div>
         <div class="line">\(T=\frac{2\pi}{\omega}\) (周期), \(F=-kx\) (弹性力), \(E=\frac{1}{2}kx^{2}\) (弹性势能)</div>
-        <div class="line">\(\omega=\sqrt{\frac{k}{m}}\) (单振动的角速度), \(f=\frac{1}{T}\) (单振动的频率), \(x=A~sin~\omega t\) (单振动的位移)</div>
+        <div class="line">\(\omega=\sqrt{\frac{k}{m}}\) (单振动的角速度), \(f=\frac{1}{T}\) (单振动的频率), \(x=A\sin\omega t\) (单振动的位移)</div>
         <div class="line">\(\omega\simeq\sqrt{\frac{g}{l}}\) (单摆的角速度), \(\vec{F}=-m\omega^{2}\vec{x}\) (回复力)</div>
         <div class="line"><span class="bullet">•</span>角速度为 \(\omega\) 的旋转物体，质量为 \(m\)，到旋转中心的距离为 \(r\) 时的离心力为 \(\vec{F}\): \(\vec{F}=m\vec{r}\omega^{2}\)</div>
       </div>
@@ -252,7 +252,7 @@
 
       <h3>功和能量</h3>
       <div class="lines">
-        <div class="line">\(W=\vec{F}\cdot\vec{x}=|\vec{F}||\vec{x}|cos~\theta\) (功)</div>
+        <div class="line">\(W=\vec{F}\cdot\vec{x}=|\vec{F}||\vec{x}|\cos\theta\) (功)</div>
         <div class="line">\(P=\frac{dW}{dt}\) (功率、瓦特)</div>
         <div class="line">\(\Delta\vec{p}=\vec{f}\Delta t\) (动量定理)</div>
         <div class="line">\(\Delta E=W\) (能量原理)</div>
@@ -279,7 +279,7 @@
         <div class="line"><span class="bullet">•</span>气体的压强: \(P=\frac{F}{S}\)</div>
         <div class="line"><span class="bullet">•</span>气体的功: \(E=P\Delta V\)</div>
         <div class="line"><span class="bullet">•</span>阿伏加德罗数: \(N_{0}=6.02214076\times10^{23}\)</div>
-        <div class="line"><span class="bullet">•</span>气体定数: \(R=8.31kJ/(mol\cdot k)\)</div>
+        <div class="line"><span class="bullet">•</span>气体定数: \(R=8.31~J/(mol\cdot K)\)</div>
         <div class="line"><span class="bullet">•</span>波尔兹曼定数: \(k=\frac{R}{N_{0}}=1.38\times10^{-23}J/K\)</div>
         <div class="line"><span class="bullet">•</span>气体的状态方程: \(PV=nRT\)</div>
         <div class="line"><span class="bullet">•</span>单原子分子理想气体的内能: \(U=\frac{3}{2}nRT\)</div>
@@ -290,7 +290,7 @@
       <div class="lines">
         <div class="line"><span class="bullet">•</span>\(N\) 个分子的碰撞产生的压强: \(p=\frac{Nm\overline{v^{2}}}{3V}\)</div>
         <div class="line"><span class="bullet">•</span>动能和热能: \(\frac{1}{2}m\overline{v^{2}}=\frac{3}{2}kT\)</div>
-        <div class="line"><span class="bullet">•</span>分子的均方根速度: \(\overline{v^{2}}=\frac{3RT}{N_{A}m}\)</div>
+        <div class="line"><span class="bullet">•</span>分子的均方根速度: \(v_{\mathrm{rms}}=\sqrt{\overline{v^{2}}}=\sqrt{\frac{3RT}{M}}\)</div>
       </div>
 
       <h3>热量和热机</h3>
@@ -325,7 +325,7 @@
         <div class="line"><span class="bullet">•</span>叠加原理: \(Y=y_{1}+y_{2}\)</div>
         <div class="line"><span class="bullet">•</span>干涉相长: \(|l_{1}-l_{2}|=m\lambda\)</div>
         <div class="line"><span class="bullet">•</span>干涉相消: \(|l_{1}-l_{2}|=(m+\frac{1}{2})\lambda\)</div>
-        <div class="line"><span class="bullet">•</span>入射角为 \(i(rad)\)，入射波速度和波长为 \(v_{i}(m/s)\)、\(\lambda_{i}(m)\)，折射角为 \(r(rad)\)，折射波速度和波长为 \(v_{r}(m/s)\) \(\lambda_{r}(m)\) 时，折射率 \(n\): \(\frac{sin~i}{sin~r}=\frac{v_{i}}{v_{r}}=\frac{\lambda_{i}}{\lambda_{r}}=n\) (斯涅耳定律、折射定律)</div>
+        <div class="line"><span class="bullet">•</span>入射角为 \(i(rad)\)，入射波速度和波长为 \(v_{i}(m/s)\)、\(\lambda_{i}(m)\)，折射角为 \(r(rad)\)，折射波速度和波长为 \(v_{r}(m/s)\) \(\lambda_{r}(m)\) 时，折射率 \(n\): \(\frac{\sin i}{\sin r}=\frac{v_{i}}{v_{r}}=\frac{\lambda_{i}}{\lambda_{r}}=n\) (斯涅耳定律、折射定律)</div>
       </div>
 
       <h3>多普勒效应</h3>
@@ -349,10 +349,10 @@
       <div class="lines">
         <div class="line"><span class="bullet">•</span>真空中的光速 (定义值): \(c=299~792~458~m/s\approx3.0\times10^{8}m/s\)</div>
         <div class="line"><span class="bullet">•</span>絶対屈折率: \(n=\frac{c}{v}\)</div>
-        <div class="line"><span class="bullet">•</span>全反射的条件: \(sin~\theta_{c}>n_{12}\)</div>
+        <div class="line"><span class="bullet">•</span>全反射的条件: \(\sin\theta_{c}=n_{21}=\frac{n_{2}}{n_{1}}\)</div>
         <div class="line"><span class="bullet">•</span>光程长: \(L=nl\)</div>
-        <div class="line"><span class="bullet">•</span>增强衍射的条件 (无波长偏移): \(d~sin~\theta=m\lambda\)</div>
-        <div class="line"><span class="bullet">•</span>减弱衍射的条件 (无波长偏移): \(d~sin~\theta=(m+\frac{1}{2})\lambda\)</div>
+        <div class="line"><span class="bullet">•</span>增强衍射的条件 (无波长偏移): \(d\sin\theta=m\lambda\)</div>
+        <div class="line"><span class="bullet">•</span>减弱衍射的条件 (无波长偏移): \(d\sin\theta=(m+\frac{1}{2})\lambda\)</div>
         <div class="line">透镜和镜的成像公式: \(\frac{1}{a}+\frac{1}{b}=\frac{1}{f}\) (成像公式), \(m=|\frac{b}{a}|\) (放大率)</div>
       </div>
 
@@ -398,7 +398,7 @@
 
       <h3>交流电路</h3>
       <div class="lines">
-        <div class="line"><span class="bullet">•</span>交流波形: \(V(t)=V_{max}sin~\omega t\)</div>
+        <div class="line"><span class="bullet">•</span>交流波形: \(V(t)=V_{max}\sin\omega t\)</div>
         <div class="line"><span class="bullet">•</span>有效电压: \(V_{e}=\frac{1}{\sqrt{2}}V_{max}\)</div>
         <div class="line"><span class="bullet">•</span>有效电流: \(I_{e}=\frac{1}{\sqrt{2}}I_{max}\)</div>
         <div class="line"><span class="bullet">•</span>容抗: \(X_{C} = \frac{1}{\omega C}\)</div>
@@ -445,7 +445,7 @@
         <div class="line"><span class="bullet">•</span>\(B = \mu nI\) (螺线管产生的磁场)</div>
         <div class="line"><span class="bullet">•</span>\(\Phi = BS\) (磁通量)</div>
         <div class="line"><span class="bullet">•</span>\(F = qvB\) (洛伦兹力)</div>
-        <div class="line"><span class="bullet">•</span>\(F = IB \times L\) (弗莱明左手定则、安培力)</div>
+        <div class="line"><span class="bullet">•</span>\(\vec{F} = I\vec{L} \times \vec{B}\) (弗莱明左手定则、安培力)</div>
       </div>
 
       <h3>电磁感应</h3>
