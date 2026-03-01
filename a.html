@@ -3,160 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>导航页面</title>
+    <title>导航页面 | 出雲的站点</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --line: #e5e7eb;
+            --primary: #2563eb;
+            --primary-soft: #dbeafe;
+            --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+            --radius: 16px;
+        }
+
         body {
-            font-family: 'Noto Sans SC', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
         }
-        header {
-            background-color: #3498db;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        main {
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        section {
-            margin-bottom: 50px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        section h2 {
-            margin-top: 0;
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 20px;
-        }
-        ul li {
-            margin-bottom: 15px;
-        }
-        ul li a {
-            color: #3498db;
+
+        a {
+            color: var(--primary);
             text-decoration: none;
-            font-size: 1.2em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .topbar a {
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: 2rem;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .quick-links a {
             display: inline-block;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid #c7d2fe;
+            background: #fff;
+            font-weight: 500;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
-        ul li a:hover {
-            background-color: #3498db;
-            color: white;
+
+        .quick-links a:hover {
+            text-decoration: none;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
         }
+
+        .section-title {
+            margin: 28px 0 14px;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .card h2 {
+            margin: 0 0 8px;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .link-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .link-list li {
+            margin-bottom: 10px;
+        }
+
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #edf2f7;
+        }
+
+        .link-item a {
+            font-weight: 500;
+        }
+
+        .meta {
+            font-size: 0.84rem;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        .badge.live {
+            color: #1d4ed8;
+            background: var(--primary-soft);
+        }
+
+        .badge.pending {
+            color: #9a3412;
+            background: #ffedd5;
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--muted);
+        }
+
         footer {
-            background-color: #2c3e50;
-            color: white;
+            margin-top: 28px;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
+            color: var(--muted);
+            font-size: 0.9rem;
         }
+
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
+            .wrap {
+                padding: 16px;
             }
-            section h2 {
-                font-size: 1.5em;
-            }
-            ul li a {
-                font-size: 1em;
-            }
-            main {
-                padding: 10px;
-            }
-            section {
+
+            .hero {
                 padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.55rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .link-item {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .meta {
+                white-space: normal;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>导航页面</h1>
-    </header>
-    <main>
-        <section>
-            <h2>网站导航</h2>
-            <p>以下是本网站的页面导航：</p>
-            <ul>
-                <li><a href="#basic-math">基本数学公式</a></li>
-                <li><a href="#applied-math">应用数学公式</a></li>
-                <li><a href="#physics">物理相关</a></li>
-                <li><a href="#chemistry">化学相关</a></li>
-                <li><a href="#links">友情链接</a></li>
-            </ul>
-        </section>
+    <div class="wrap">
+        <div class="topbar">
+            <div>出雲的站点 / 内容中枢</div>
+            <a href="index.html">← 返回首页</a>
+        </div>
 
-        <section id="basic-math">
-            <h2>基本数学公式</h2>
-            <p>这里收集了一些基本数学公式。</p>
-            <ul>
-                <li><a href="integration-chart.html">积分表</a></li>
-                <li><a href="derivatives.html">导数表</a></li>
-                <li><a href="geometry.html">向量代数与空间解析几何</a></li>
-            </ul>
-        </section>
+        <header class="hero">
+            <h1>导航页面</h1>
+            <p>
+                这里是真正的内容入口。这个站点主要收集公式、笔记和一些整理中的资料。
+                如果你是第一次来，建议先从“常用入口”开始。
+            </p>
+
+            <div class="quick-links">
+                <a href="integration-chart.html">常见积分表</a>
+                <a href="physics.html">普通物理学</a>
+                <a href="mathphysics.html">数理方法</a>
+                <a href="derivatives.html">导数表</a>
+            </div>
+        </header>
+
+        <div class="section-title">内容分类</div>
+
+        <main class="grid">
+            <section class="card">
+                <h2>基本数学公式</h2>
+                <p>适合快速查表与基础复习，作为全站最常用入口之一。</p>
+                <ul class="link-list">
+                    <li>
+                        <div class="link-item">
+                            <a href="integration-chart.html">积分表</a>
+                            <span class="badge live">已上线</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <a href="derivatives.html">导数表</a>
+                            <span class="badge live">已上线</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <a href="geometry.html">向量代数与空间解析几何</a>
+                            <span class="badge live">已上线</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>物理相关</h2>
+                <p>公式量最大，建议后续继续做页内目录和分章节跳转。</p>
+                <ul class="link-list">
+                    <li>
+                        <div class="link-item">
+                            <a href="physics.html">普通物理学</a>
+                            <span class="meta">综合长文档</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <a href="force.html">理论力学</a>
+                            <span class="meta">独立专题</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <a href="mathphysics.html">数理方法</a>
+                            <span class="meta">数学工具向</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>化学相关</h2>
+                <p>这一栏先保留结构，但不要用空链接假装完成，明确标注状态更稳。</p>
+                <ul class="link-list">
+                    <li>
+                        <div class="link-item">
+                            <span>化学方程式</span>
+                            <span class="badge pending">整理中</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <span>元素周期表</span>
+                            <span class="badge pending">整理中</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <span>化学常数</span>
+                            <span class="badge pending">整理中</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>友情链接</h2>
+                <p>这部分建议以后放真实站点。现在先保留占位，但不要做成无意义跳转。</p>
+                <ul class="link-list">
+                    <li>
+                        <div class="link-item">
+                            <span>示例网站</span>
+                            <span class="badge pending">待替换</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <span>广告位招租</span>
+                            <span class="badge pending">待替换</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <span>友链招租</span>
+                            <span class="badge pending">待替换</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
 
         
 
-        <section id="physics">
-            <h2>物理相关</h2>
-            <p>这里收集了一些物理相关的公式和资源。</p>
-            <ul>
-                <li><a href="physics.html">普通物理学</a></li>
-                <li><a href="force.html">理论力学</a></li>
-                <li><a href="mathphysics.html">数理方法</a></li>
-            </ul>
-        </section>
-
-        <section id="chemistry">
-            <h2>化学相关</h2>
-            <p>这里收集了一些化学相关的公式和资源。</p>
-            <ul>
-                <li><a href="#">化学方程式</a></li>
-                <li><a href="#">元素周期表</a></li>
-                <li><a href="#">化学常数</a></li>
-            </ul>
-        </section>
-
-        <section id="links">
-            <h2>友情链接</h2>
-            <p>以下是一些有用的友情链接：</p>
-            <ul>
-                <li><a href="https://www.example.com">示例网站</a></li>
-                <li><a href="https://www.example.com">广告位招租</a></li>
-                <li><a href="https://www.example.com">友链招租</a></li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>© kitsune navigation</p>
-    </footer>
+        <footer>
+            © kitsune navigation
+        </footer>
+    </div>
 </body>
-</html>
-
+    </html>
