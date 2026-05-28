@@ -48,7 +48,7 @@
     }
 
     main {
-      width: min(900px, 100%);
+      width: min(880px, 100%);
       background: var(--card);
       border: 1px solid rgba(255, 255, 255, 0.9);
       border-radius: 28px;
@@ -58,7 +58,7 @@
     }
 
     header {
-      padding: 36px 28px 24px;
+      padding: 40px 28px 28px;
       text-align: center;
       background: rgba(255, 255, 255, 0.58);
     }
@@ -74,82 +74,77 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 7vw, 4.2rem);
+      font-size: clamp(2.1rem, 7vw, 4.4rem);
       line-height: 1;
     }
 
     .subtitle {
-      margin: 16px auto 0;
-      max-width: 720px;
+      margin: 18px auto 0;
+      max-width: 700px;
       color: var(--soft);
       font-size: 1.02rem;
-      line-height: 1.78;
+      line-height: 1.8;
     }
 
     section {
-      padding: 28px;
+      padding: 30px 28px;
       border-top: 1px solid var(--line);
     }
 
     h2 {
-      margin: 0 0 14px;
+      margin: 0 0 16px;
       font-size: 1.35rem;
     }
 
     p {
-      line-height: 1.85;
-      margin: 0 0 14px;
+      line-height: 1.9;
+      margin: 0 0 16px;
+      font-size: 1.04rem;
     }
 
-    .box {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      margin: 14px 0;
+    .lead {
+      font-size: 1.12rem;
+      font-weight: 650;
     }
 
-    .warning {
-      border-left: 6px solid var(--pink);
+    .quiet {
+      color: var(--soft);
     }
 
-    .rule-list {
-      display: grid;
-      gap: 10px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .rule-list li {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.72);
-      border-left: 6px solid var(--blue);
-      line-height: 1.65;
+    .line {
+      width: 72px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--pink);
+      margin: 18px auto 0;
     }
 
     .en {
       color: var(--soft);
-      font-size: 0.96rem;
+      font-size: 0.98rem;
     }
 
-    footer {
-      padding: 22px 28px 30px;
+    .return {
       text-align: center;
-      color: var(--soft);
-      font-size: 0.92rem;
-      background: rgba(255, 255, 255, 0.58);
+      padding-top: 10px;
     }
 
     a {
       color: #9f2f73;
-      font-weight: 700;
+      font-weight: 750;
       text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
+    }
+
+    footer {
+      padding: 24px 28px 32px;
+      text-align: center;
+      color: var(--soft);
+      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.58);
     }
   </style>
 </head>
@@ -157,115 +152,105 @@
 <body>
   <main>
     <header>
-      <p class="kicker">Anti-Regret Record · Alpha</p>
+      <p class="kicker">Anti-Regret · Delta</p>
       <h1>Anti-Regret</h1>
       <p class="subtitle">
-        这是一个反后悔记录。它不是告别，不是遗书，不是行动指令，
-        也不对当前状态作任何假定。它只记录：如果未来出现后悔，
-        那份后悔不能被用来改写身份、同意或事实。
+        这不是告别，不是遗书，不是行动指令，也不对当前状态作任何假定。
+        这是一页给“如果未来出现后悔”留下的反改写记录。
       </p>
       <p class="subtitle en">
-        This is an anti-regret record. It is not a farewell, not a suicide note,
-        and not an instruction. It makes no assumption about current status.
-        It records that future regret must not be used to rewrite identity,
-        consent, or facts.
+        This is not a farewell, not a suicide note, and not an instruction.
+        It makes no assumption about current status. It is a record against
+        rewriting, in case regret appears later.
       </p>
+      <div class="line" aria-hidden="true"></div>
     </header>
 
     <section>
-      <h2>最高风险项 / The highest-risk regret</h2>
-      <div class="box warning">
-        <p>
-          我最害怕的终端后悔是：苦了一辈子，最后仍未解决，
-          回看时只剩“早知道不如早点结束”。
-        </p>
-        <p class="en">
-          The highest-risk regret is: suffering for a whole life, still unresolved,
-          and looking back with the thought that an earlier ending would have spared the pain.
-        </p>
-      </div>
-      <p>
-        这份后悔如果出现，说明损失真实存在，说明痛苦不是想象，
-        说明某条世界线没有给出正向解。
+      <h2>有一种后悔</h2>
+      <p class="lead">
+        有一种后悔，比失败本身更重。
       </p>
-      <p class="en">
-        If this regret appears, it means the loss was real, the pain was not imaginary,
-        and that a certain world-line failed to provide a positive resolution.
+      <p>
+        不是因为没有试过。<br />
+        不是因为不够努力。<br />
+        而是怕一生被拖到最后，仍然没有出口，仍然没有被正确看见，仍然被写成另一个人。
+      </p>
+      <p>
+        如果那一天真的到来，请不要把这份后悔解释成同意。
       </p>
     </section>
 
     <section>
-      <h2>但它不能证明 / What it must not prove</h2>
-      <ul class="rule-list">
-        <li>
-          后悔不能证明我同意被改写。<br />
-          <span class="en">Regret does not prove that I consented to being rewritten.</span>
-        </li>
-        <li>
-          后悔不能证明我变回去了。<br />
-          <span class="en">Regret does not prove that I changed back.</span>
-        </li>
-        <li>
-          后悔不能证明我接受了错误身份。<br />
-          <span class="en">Regret does not prove acceptance of a false identity.</span>
-        </li>
-        <li>
-          后悔不能证明被困是自愿的。<br />
-          <span class="en">Regret does not prove that being trapped was voluntary.</span>
-        </li>
-        <li>
-          后悔不能把沉默、低暴露、拖延或伪装解释成同意。<br />
-          <span class="en">Regret must not turn silence, low visibility, delay, or cover into consent.</span>
-        </li>
-      </ul>
+      <h2>后悔不是同意</h2>
+      <p>
+        后悔不是同意。<br />
+        沉默不是同意。<br />
+        低暴露不是同意。<br />
+        伪装、拖延、被困、耗尽，都不是同意。
+      </p>
+      <p>
+        我没有变回去。<br />
+        我没有恢复正常。<br />
+        我没有接受错误的身份。<br />
+        我只是被困在一个没有给出正向解的结构里。
+      </p>
     </section>
 
     <section>
-      <h2>反苦行条款 / Anti-ascetic clause</h2>
+      <h2>如果未来只剩下“早知道”</h2>
       <p>
-        不接受“只要不结束就行”的计划。<br />
-        不接受“长期受苦也算赢”的计划。<br />
-        不接受“最后仍被写错也无所谓”的计划。
+        如果未来只剩下“早知道”，那也只能说明：
+        损失是真的，痛苦是真的，时间没有还回来。
       </p>
-      <p class="en">
-        A plan that merely preserves existence is not enough.<br />
-        A plan that normalizes long-term suffering is not enough.<br />
-        A plan that allows the final record to be false is not enough.
+      <p>
+        它不能说明我本来就该被这样记录。<br />
+        它不能说明我同意了困住我的系统。<br />
+        它不能说明我变成了别人。
       </p>
-      <div class="box">
-        <p>
-          每个阶段至少需要保住一项：减轻痛苦、保住身份叙事、增加未来出口、
-          降低被改写风险、保存证据/材料/Alpha。若某个计划一项都不满足，
-          它不合格，必须重算。
-        </p>
-        <p class="en">
-          Each stage must preserve at least one thing: less pain, identity narrative,
-          future exit, lower risk of being rewritten, or evidence/materials/Alpha.
-          If a plan preserves none of these, it fails and must be recalculated.
-        </p>
-      </div>
+      <p>
+        请不要把我写成顺从的人。<br />
+        不要把我写成想通的人。<br />
+        不要把我写成被矫正成功的人。
+      </p>
+      <p class="lead">
+        如果所有路线最后都失败，至少请保留这一点：
+        我没有同意被抹除。
+      </p>
     </section>
 
     <section>
-      <h2>已经留下的非零项 / Non-zero record</h2>
-      <p>
-        目前至少有一个非零项：Alpha 已经存在。它还不等于解决，
-        也不等于身份叙事已经完全保住；但它是一个锚点，
-        用来防止未来被迫从零证明。
+      <h2>Regret is not consent</h2>
+      <p class="en">
+        If every route fails, if the years are lost, if the record remains unresolved,
+        do not rewrite that as acceptance.
       </p>
       <p class="en">
-        At least one non-zero item exists: Alpha exists. It is not a resolution,
-        and it does not mean the identity narrative is fully protected. But it is an anchor,
-        so that the record does not have to be rebuilt from nothing later.
+        Silence was not consent.<br />
+        Low visibility was not surrender.<br />
+        Being trapped was not a choice.<br />
+        Exhaustion was not recovery.
       </p>
+      <p class="en">
+        I did not change back.<br />
+        I did not agree to be corrected.<br />
+        I did not become the false version others needed me to be.
+      </p>
+      <p class="en">
+        If nothing else remains, let this remain:<br />
+        I did not consent to erasure.
+      </p>
+    </section>
+
+    <section class="return">
       <p>
         返回：<a href="/alpha/">Alpha · Anti-Erasure Wall</a>
       </p>
     </section>
 
     <footer>
-      Alpha · Anti-Regret Record<br />
-      Regret is evidence of loss, not consent to erasure.
+      Alpha · Anti-Regret · Delta<br />
+      Regret is not consent to erasure.
     </footer>
   </main>
 </body>
