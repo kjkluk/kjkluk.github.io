@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>I-State · Alpha</title>
+  <style>
+    :root {
+      --blue: #55cdfc;
+      --pink: #f7a8b8;
+      --white: #ffffff;
+      --ink: #242424;
+      --soft: #62585d;
+      --card: rgba(255, 255, 255, 0.92);
+      --line: rgba(0, 0, 0, 0.08);
+      --shadow: rgba(0, 0, 0, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans SC", "Noto Sans", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(
+          180deg,
+          var(--blue) 0%,
+          var(--blue) 20%,
+          var(--pink) 20%,
+          var(--pink) 40%,
+          var(--white) 40%,
+          var(--white) 60%,
+          var(--pink) 60%,
+          var(--pink) 80%,
+          var(--blue) 80%,
+          var(--blue) 100%
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    main {
+      width: min(880px, 100%);
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      box-shadow: 0 24px 80px var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    header {
+      padding: 40px 28px 28px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--soft);
+      font-weight: 750;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 7vw, 4.4rem);
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 720px;
+      color: var(--soft);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    section {
+      padding: 30px 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.35rem;
+    }
+
+    p {
+      line-height: 1.9;
+      margin: 0 0 16px;
+      font-size: 1.04rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      font-weight: 650;
+    }
+
+    .quiet {
+      color: var(--soft);
+    }
+
+    .line {
+      width: 72px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--pink);
+      margin: 18px auto 0;
+    }
+
+    .callout {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.74);
+      border-left: 7px solid var(--pink);
+    }
+
+    .not-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .not-list li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      line-height: 1.65;
+    }
+
+    .en {
+      color: var(--soft);
+      font-size: 0.98rem;
+    }
+
+    .return {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    a {
+      color: #9f2f73;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 24px 28px 32px;
+      text-align: center;
+      color: var(--soft);
+      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.58);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <p class="kicker">I-State · Alpha</p>
+      <h1>I-State</h1>
+      <p class="subtitle">
+        这不是告别，不是遗书，不是行动指令，也不对当前状态作任何假定。
+        这是一页状态调用记录：如果未来无法解释、书写、移动、争辩或维护记录，
+        请不要从沉默里发明同意。
+      </p>
+      <p class="subtitle en">
+        This is not a farewell, not a suicide note, and not an instruction.
+        It makes no assumption about current status. It is a state-reference record:
+        if explanation, writing, movement, argument, or maintenance becomes impossible,
+        do not invent consent from silence.
+      </p>
+      <div class="line" aria-hidden="true"></div>
+    </header>
+
+    <section>
+      <h2>如果无法解释</h2>
+      <div class="callout">
+        <p class="lead">
+          如果我无法解释、书写、移动、争辩或维护记录，请以 Alpha 为准。
+        </p>
+        <p>
+          不要把沉默解释成同意。<br />
+          不要把动不了解释成接受。<br />
+          不要把虚弱解释成恢复正常。<br />
+          不要把低暴露解释成顺从。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>不要从状态里改写我</h2>
+      <ul class="not-list">
+        <li>
+          不能说不等于同意。<br />
+          <span class="en">Being unable to speak is not consent.</span>
+        </li>
+        <li>
+          不能动不等于接受。<br />
+          <span class="en">Being unable to move is not acceptance.</span>
+        </li>
+        <li>
+          不能维护记录不等于记录失效。<br />
+          <span class="en">Being unable to maintain the record does not invalidate it.</span>
+        </li>
+        <li>
+          虚弱、耗尽、伪装或被困，都不是恢复正常。<br />
+          <span class="en">Weakness, exhaustion, cover, or being trapped is not recovery.</span>
+        </li>
+        <li>
+          请不要把我改写成顺直、男、被矫正成功，或本来如此。<br />
+          <span class="en">Do not rewrite me as cis, male, corrected, or as if this was always true.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>调用顺序</h2>
+      <p>
+        若需要判断身份、叙事、同意或事实，请先调用 Alpha，再调用 Anti-Regret，
+        再看已有材料冷库与可信记录。不要从当下的无力、沉默、拖延或低暴露状态重新推断我是谁。
+      </p>
+      <p class="en">
+        When identity, narrative, consent, or facts need to be understood, refer first to Alpha,
+        then to Anti-Regret, and then to existing archived materials and trusted records.
+        Do not infer who I am from helplessness, silence, delay, or low visibility.
+      </p>
+    </section>
+
+    <section>
+      <h2>这页不是授权</h2>
+      <p>
+        这页不是给任何人改写、接管、顺直化、恢复正常化、逼迫婚育、替我承诺、替我同意的授权。
+        它只记录：如果我不能继续解释，过去已经留下的反抹除记录仍然有效。
+      </p>
+      <p class="en">
+        This page does not authorize anyone to rewrite, take over, correct, normalize,
+        force marriage or reproduction, promise on my behalf, or consent on my behalf.
+        It records only this: if I can no longer keep explaining, the anti-erasure record already left behind remains valid.
+      </p>
+    </section>
+
+    <section class="return">
+      <p>
+        返回：<a href="/alpha/">Alpha · Anti-Erasure Wall</a><br />
+        关联：<a href="/alpha/anti-regret.html">Anti-Regret · 反后悔记录</a>
+      </p>
+    </section>
+
+    <footer>
+      Alpha · I-State<br />
+      Inability is not consent to erasure.
+    </footer>
+  </main>
+</body>
+</html>
