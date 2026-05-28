@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>H-Care · Alpha</title>
+  <style>
+    :root {
+      --blue: #55cdfc;
+      --pink: #f7a8b8;
+      --white: #ffffff;
+      --ink: #242424;
+      --soft: #62585d;
+      --card: rgba(255, 255, 255, 0.92);
+      --line: rgba(0, 0, 0, 0.08);
+      --shadow: rgba(0, 0, 0, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans SC", "Noto Sans", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(
+          180deg,
+          var(--blue) 0%,
+          var(--blue) 20%,
+          var(--pink) 20%,
+          var(--pink) 40%,
+          var(--white) 40%,
+          var(--white) 60%,
+          var(--pink) 60%,
+          var(--pink) 80%,
+          var(--blue) 80%,
+          var(--blue) 100%
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    main {
+      width: min(880px, 100%);
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      box-shadow: 0 24px 80px var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    header {
+      padding: 40px 28px 28px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--soft);
+      font-weight: 750;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 7vw, 4.4rem);
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 720px;
+      color: var(--soft);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    section {
+      padding: 30px 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.35rem;
+    }
+
+    p {
+      line-height: 1.9;
+      margin: 0 0 16px;
+      font-size: 1.04rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      font-weight: 650;
+    }
+
+    .quiet {
+      color: var(--soft);
+    }
+
+    .line {
+      width: 72px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--pink);
+      margin: 18px auto 0;
+    }
+
+    .care-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .care-list li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border-left: 6px solid var(--pink);
+      line-height: 1.65;
+    }
+
+    .callout {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .en {
+      color: var(--soft);
+      font-size: 0.98rem;
+    }
+
+    .return {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    a {
+      color: #9f2f73;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 24px 28px 32px;
+      text-align: center;
+      color: var(--soft);
+      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.58);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <p class="kicker">H-Care · Alpha</p>
+      <h1>H-Care</h1>
+      <p class="subtitle">
+        这不是失败判决，不是放弃，也不是把困住的环境承认为正向解。
+        这是一页低耗保真记录：如果以后仍未解决，至少要少一点痛、少一点羞辱、少一点被错称。
+      </p>
+      <p class="subtitle en">
+        This is not a verdict of failure, not surrender, and not recognition of the trapping environment as a solution.
+        It is a low-maintenance fidelity record: if things remain unresolved later, reduce pain, humiliation, and misnaming.
+      </p>
+      <div class="line" aria-hidden="true"></div>
+    </header>
+
+    <section>
+      <h2>低耗保真</h2>
+      <p class="lead">
+        如果以后仍未解决，请优先减少错误称呼、错误叙事、无意义争辩和高刺激环境。
+      </p>
+      <p>
+        少一点痛、少一点羞辱、少一点被改写，也是有效处理。
+        低维护状态不是同意被写错；低暴露空间不是顺从；少争辩不是承认错误叙事。
+      </p>
+      <p class="en">
+        If things remain unresolved later, prioritize reducing misnaming, false narratives,
+        pointless arguments, and high-stimulation environments. Less pain, less humiliation,
+        and less rewriting are valid forms of care.
+      </p>
+    </section>
+
+    <section>
+      <h2>照护优先级 / Care priorities</h2>
+      <ul class="care-list">
+        <li>
+          少被错称。<br />
+          <span class="en">Reduce misnaming.</span>
+        </li>
+        <li>
+          少被错误叙事包围。<br />
+          <span class="en">Reduce exposure to false narratives.</span>
+        </li>
+        <li>
+          少进入无意义争辩。<br />
+          <span class="en">Reduce pointless argument loops.</span>
+        </li>
+        <li>
+          少进入高刺激、高压、会强迫伪装的环境。<br />
+          <span class="en">Reduce high-stimulation, high-pressure, forced-cover environments.</span>
+        </li>
+        <li>
+          保留名字、叙事、低暴露空间和已有记录。<br />
+          <span class="en">Preserve name, narrative, low-visibility space, and existing records.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>不要把照护写成矫正</h2>
+      <div class="callout">
+        <p>
+          不要把老了、累了、虚弱了、低暴露了，写成“终于恢复正常”。<br />
+          不要把不争辩写成接受。<br />
+          不要把减少痛苦写成放弃身份。<br />
+          不要把本地 cover 写成解决。
+        </p>
+        <p class="en">
+          Do not turn aging, exhaustion, weakness, or low visibility into “finally recovered.”<br />
+          Do not turn not arguing into acceptance.<br />
+          Do not turn reducing pain into giving up identity.<br />
+          Do not turn local cover into a solution.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>H 层不是终局判决</h2>
+      <p>
+        H 层的目标不是梦幻翻盘，也不是宣布一切结束。
+        它只是承认：如果年轻窗口、身体轨道或社会轨道已经损失很多，
+        仍然可以通过低耗保真来减少进一步伤害，并保留 Alpha、Anti-Regret、I-State 与材料冷库的效力。
+      </p>
+      <p class="en">
+        H-Care is not a fantasy comeback and not a declaration that everything is over.
+        It recognizes that if earlier windows, bodily capacity, or social routes have been badly damaged,
+        low-maintenance fidelity can still reduce further harm and preserve the force of Alpha,
+        Anti-Regret, I-State, and archived materials.
+      </p>
+    </section>
+
+    <section>
+      <h2>调用记录</h2>
+      <p>
+        若未来需要判断老年、低维护、虚弱或低暴露状态下的身份与叙事，请先调用 Alpha，
+        再看 Anti-Regret 与 I-State。不要从疲惫或低维护状态里反推“同意被改写”。
+      </p>
+      <p class="en">
+        When identity and narrative need to be understood under aging, low-maintenance,
+        weakness, or low-visibility conditions, refer first to Alpha, then to Anti-Regret and I-State.
+        Do not infer consent to erasure from fatigue or low maintenance.
+      </p>
+    </section>
+
+    <section class="return">
+      <p>
+        返回：<a href="/alpha/">Alpha · Anti-Erasure Wall</a><br />
+        关联：<a href="/alpha/anti-regret.html">Anti-Regret · 反后悔记录</a> ·
+        <a href="/alpha/i-state.html">I-State · 状态调用记录</a>
+      </p>
+    </section>
+
+    <footer>
+      Alpha · H-Care<br />
+      Low-maintenance fidelity is not consent to erasure.
+    </footer>
+  </main>
+</body>
+</html>
