@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Alpha · Anti-Erasure Wall</title>
+  <style>
+    :root {
+      --blue: #55cdfc;
+      --pink: #f7a8b8;
+      --white: #ffffff;
+      --ink: #242424;
+      --soft: #62585d;
+      --card: rgba(255, 255, 255, 0.9);
+      --line: rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans SC", "Noto Sans", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(
+          180deg,
+          var(--blue) 0%,
+          var(--blue) 20%,
+          var(--pink) 20%,
+          var(--pink) 40%,
+          var(--white) 40%,
+          var(--white) 60%,
+          var(--pink) 60%,
+          var(--pink) 80%,
+          var(--blue) 80%,
+          var(--blue) 100%
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    main {
+      width: min(900px, 100%);
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    header {
+      padding: 36px 28px 24px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--soft);
+      font-weight: 750;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 4.2rem);
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin: 16px auto 0;
+      max-width: 700px;
+      color: var(--soft);
+      font-size: 1.02rem;
+      line-height: 1.78;
+    }
+
+    section {
+      padding: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+    }
+
+    p {
+      line-height: 1.85;
+      margin: 0 0 14px;
+    }
+
+    .entry {
+      display: grid;
+      gap: 14px;
+    }
+
+    .row {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .label {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 750;
+      margin-bottom: 6px;
+    }
+
+    .value {
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .statement {
+      font-size: 1.08rem;
+    }
+
+    .not-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .not-list li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border-left: 6px solid var(--pink);
+      line-height: 1.65;
+    }
+
+    .en {
+      color: var(--soft);
+      font-size: 0.96rem;
+    }
+
+    footer {
+      padding: 22px 28px 30px;
+      text-align: center;
+      color: var(--soft);
+      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.55);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <p class="kicker">Anti-Erasure Entry · Gamma</p>
+      <h1>Alpha</h1>
+      <p class="subtitle">
+        这是一个反抹除条目。它不是遗书，不是悼词，不是告别，
+        也不对当前状态作任何假定。它只记录：某些事实不应被世界改写。
+      </p>
+      <p class="subtitle en">
+        This is an anti-erasure entry. It is not a note of farewell,
+        not an obituary, and not a final instruction. It makes no assumption
+        about current status. It records that certain facts must not be rewritten.
+      </p>
+    </header>
+
+    <section class="entry" aria-label="wall entry">
+      <div class="row">
+        <span class="label">Entry</span>
+        <span class="value">Anti-erasure entry · 反抹除条目</span>
+      </div>
+
+      <div class="row">
+        <span class="label">Wall</span>
+        <span class="value">One among us · 不被抹除的一员</span>
+      </div>
+
+      <div class="row">
+        <span class="label">Core statement</span>
+        <p class="statement">
+          我没有变回去。<br />
+          我没有同意被顺直化。<br />
+          我不是“恢复正常”。<br />
+          如果我沉默、低暴露、拖延、伪装或被困住，
+          请不要把那解释成接受。
+        </p>
+        <p class="statement en">
+          I have not changed back.<br />
+          I have not consented to being rewritten as cis or straight.<br />
+          I am not “recovered” into a false normal.<br />
+          If I am silent, low-visible, delayed, covered, or trapped,
+          do not read that as acceptance.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>不许改写 / Do not rewrite this</h2>
+      <ul class="not-list">
+        <li>
+          沉默不是同意。<br />
+          <span class="en">Silence is not consent.</span>
+        </li>
+        <li>
+          低暴露不是投降。<br />
+          <span class="en">Low visibility is not surrender.</span>
+        </li>
+        <li>
+          生存伪装不是顺直化成功。<br />
+          <span class="en">Survival cover is not correction.</span>
+        </li>
+        <li>
+          被困住不是自愿受苦。<br />
+          <span class="en">Being trapped is not voluntary suffering.</span>
+        </li>
+        <li>
+          没有出口不等于认同困住我的系统。<br />
+          <span class="en">
+            Lack of an exit does not mean agreement with the system that trapped me.
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>为什么这个页面存在 / Why this page exists</h2>
+      <p>
+        这个页面是为了完备性而存在。若某些路线长期失败，若某些制度不承认，
+        若某些环境只提供压制、伪装和拖延，这里仍然记录一件事：
+        我没有同意被改写成另一个人。
+      </p>
+      <p class="en">
+        This page exists for completeness. If formal routes fail for a long time,
+        if systems refuse recognition, if the environment only allows suppression,
+        cover, and delay, this record still states one fact:
+        I did not consent to being rewritten as someone else.
+      </p>
+    </section>
+
+    <section>
+      <h2>如何记住 / How to remember</h2>
+      <p>
+        请按我认可的身份、性别与叙述来记住我。
+        不要把等待说成接受，不要把被困说成选择，
+        不要把生存说成“想通了”“恢复正常了”或“本来就是那样”。
+      </p>
+      <p class="en">
+        Please remember me by the identity, gender, and narrative I choose.
+        Do not turn waiting into acceptance, being trapped into choice,
+        or survival into “recovery.”
+      </p>
+    </section>
+
+    <footer>
+      Alpha · Anti-Erasure Wall · Gamma<br />
+      This page is a record against erasure, not a farewell.
+    </footer>
+  </main>
+</body>
+</html>
