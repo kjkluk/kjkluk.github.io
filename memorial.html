@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>默哀与纪念</title>
+    <title>默哀</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -20,79 +20,95 @@
 
         body {
             font-family: 'Noto Sans SC', sans-serif;
-            background: linear-gradient(135deg, #55CDFC 0%, #F7A8B8 45%, #FFFFFF 100%);
-            color: #243040;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 32px 16px;
+            background: #f7a8b8;
+            color: #1f2933;
+            padding: 24px;
         }
 
         main {
-            width: min(760px, 100%);
-            background: rgba(255, 255, 255, 0.86);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            border-radius: 24px;
-            box-shadow: 0 18px 60px rgba(36, 48, 64, 0.18);
-            padding: clamp(28px, 7vw, 56px);
+            max-width: 760px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 6px solid #55cdfc;
+            padding: 32px;
         }
 
         h1 {
             margin: 0 0 24px;
-            font-size: clamp(2rem, 8vw, 4.4rem);
-            line-height: 1.05;
-            color: #F7A8B8;
+            font-size: clamp(2.4rem, 9vw, 5rem);
+            line-height: 1;
         }
 
-        .subtitle {
-            margin: 0 0 32px;
-            font-size: clamp(1.05rem, 3vw, 1.35rem);
-            line-height: 1.8;
-            color: #445065;
+        h2 {
+            margin: 32px 0 12px;
+            font-size: 1.25rem;
         }
 
-        .note {
-            border-left: 6px solid #55CDFC;
-            padding: 18px 0 18px 22px;
+        p,
+        li {
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        ul {
+            padding-left: 1.4em;
+        }
+
+        .block {
             margin: 28px 0;
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            padding: 18px;
+            border-left: 8px solid #f7a8b8;
+            background: #f7f7f7;
             font-weight: 700;
-            line-height: 1.85;
         }
 
-        p {
-            font-size: 1rem;
-            line-height: 2;
-            margin: 18px 0;
-        }
-
-        .small {
+        .footer {
             margin-top: 36px;
-            font-size: 0.92rem;
-            color: #68758a;
+            padding-top: 18px;
+            border-top: 1px solid #ddd;
+            color: #4b5563;
         }
     </style>
 </head>
 <body>
     <main>
-        <h1>默哀与纪念</h1>
-        <p class="subtitle">为被坏路线吞掉的时间，为迟到太久的主线，为仍未被抹去的名字。</p>
+        <h1>默哀</h1>
 
-        <div class="note">
-            没完成，不等于不存在。<br>
-            没被承认，不等于同意被改写。<br>
-            后悔不是同意，耗尽不是同意。
+        <p>给一条被拖垮的主线。</p>
+        <p>给被坏路线、坏制度、坏资金结构吃掉的时间。</p>
+        <p>给没有来得及完成、也不该因此被抹掉的名字。</p>
+
+        <div class="block">
+            这不是遗书。<br>
+            不是终局声明。<br>
+            不是给失败盖章。<br>
+            只是记录：这里确实发生过损失。
         </div>
 
-        <p>
-            此页不是终局声明，也不是失败判词。它只是把一段被耽误、被压低、被迫延期的时间放在这里，安静地记住。
-        </p>
+        <h2>默哀对象</h2>
+        <ul>
+            <li>被延误的性别主线。</li>
+            <li>被创业资金线连带拖入 H 的窗口。</li>
+            <li>被错误环境消耗掉的时间、钱、身体和判断力。</li>
+            <li>那些本来应该更早开始、却被条件卡死的生活。</li>
+        </ul>
 
-        <p>
-            为失去的窗口默哀。为没有来得及被好好对待的自己纪念。为仍然拒绝被错误叙事盖棺的人保留一盏灯。
-        </p>
+        <h2>不默哀的东西</h2>
+        <ul>
+            <li>不默哀本人。</li>
+            <li>不替坏路线偿命。</li>
+            <li>不把没完成写成不存在。</li>
+            <li>不把穷、老、失败写成同意。</li>
+        </ul>
 
-        <p class="small">Alpha 保留：路线可以塌，名字不能被抹去。</p>
+        <div class="block">
+            后悔不是同意。<br>
+            沉默不是同意。<br>
+            被困不是同意。<br>
+            耗尽不是同意。
+        </div>
+
+        <p class="footer">Alpha 保留：路线可以塌，解释权不能交出去。</p>
     </main>
 </body>
 </html>
