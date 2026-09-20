@@ -1,7 +1,7 @@
 "use strict";
 
 // RFC 3526 MODP Group 14 (2048-bit safe prime), generator g = 2.
-// Schnorr proof in the prime-order subgroup q=(p-1)/2.
+// Schnorr proof in the q-order subgroup q=(p-1)/2.
 const P = BigInt("0x" +
   "FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1" +
   "29024E088A67CC74020BBEA63B139B22514A08798E3404DD" +
@@ -16,10 +16,9 @@ const P = BigInt("0x" +
   "728E5A8AACAA68FFFFFFFFFFFFFFFF");
 const Q = (P - 1n) / 2n;
 const G = 2n;
-const DOMAIN = "ZK-ID-SCHNORR-v1";
+const DOMAIN = "ZK-ID-SCHNORR-v2";
 
 const yEl = document.getElementById("publicY");
-const nonceEl = document.getElementById("nonce");
 const proofEl = document.getElementById("proof");
 const button = document.getElementById("verify");
 const result = document.getElementById("result");
@@ -46,8 +45,8 @@ function hexCanonical(n) {
   return n.toString(16);
 }
 
-async function challengeScalar(y, t, nonce) {
-  const msg = DOMAIN + "\n" + hexCanonical(y) + "\n" + hexCanonical(t) + "\n" + nonce;
+async function challengeScalar(y, t, context) {
+  const msg = DOMAIN + "\n" + hexCanonical(y) + "\n" + hexCanonical(t) + "\n" + context;
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(msg));
   const bytes = new Uint8Array(digest);
   let n = 0n;
@@ -63,35 +62,37 @@ function setResult(text, kind = "") {
 button.addEventListener("click", async () => {
   button.disabled = true;
   setResult("正在验证…");
+
   try {
     const y = parseHexInt(yEl.value, "Y");
-    const nonce = nonceEl.value;
     const proof = JSON.parse(proofEl.value);
+
     if (!proof || typeof proof !== "object" || Array.isArray(proof)) {
-      throw new Error("π 必须是 JSON 对象。");
+      throw new Error("proof 必须是 JSON 对象。");
     }
 
+    const context = String(proof.context ?? "");
     const t = parseHexInt(proof.t, "t");
     const s = parseHexInt(proof.s, "s");
 
-    if (nonce.length === 0) throw new Error("challenge 不能为空。");
+    if (!context.length) throw new Error("context 不能为空。");
     if (!(y > 1n && y < P - 1n)) throw new Error("Y 超出群范围。");
     if (!(t > 1n && t < P - 1n)) throw new Error("t 超出群范围。");
     if (!(s >= 0n && s < Q)) throw new Error("s 超出标量范围。");
 
-    // Ensure public elements lie in the q-order subgroup.
     if (modPow(y, Q, P) !== 1n) throw new Error("Y 不在预期子群。");
     if (modPow(t, Q, P) !== 1n) throw new Error("t 不在预期子群。");
 
-    const c = await challengeScalar(y, t, nonce);
-
-    // Schnorr verification:
-    // g^s == t * y^c (mod p)
+    const c = await challengeScalar(y, t, context);
     const left = modPow(G, s, P);
     const right = (t * modPow(y, c, P)) % P;
 
     if (left === right) {
-      setResult("VALID ✓\n证明通过：当前证明者知道与旧锚 Y 对应的秘密。", "valid");
+      setResult(
+        "VALID ✓\n证明通过。\n\n绑定文本：\n" + context +
+        "\n\n⚠ 这个公开锚 Y 现在应视为已使用，不再接受第二次。",
+        "valid"
+      );
     } else {
       setResult("INVALID ✗\n证明未通过。", "invalid");
     }
