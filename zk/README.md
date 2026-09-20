@@ -1,22 +1,36 @@
 # ZK verifier
 
-A deliberately small browser-side Groth16 verifier for GitHub Pages.
+A small, dependency-free browser verifier for a Schnorr proof of knowledge.
 
-## Hard boundary
+## What is public
 
-This page is **verification only**.
+- `Y = g^x mod p` — the anchor sent in the first email.
+- a fresh challenge/nonce chosen for the later verification.
+- proof `π = {t, s}`.
 
-- It accepts public inputs and a proof (π).
-- It must never ask for the secret seed.
-- It does not generate proofs.
-- Runtime scripts are served from this repository; there is no CDN dependency.
-- The page intentionally refuses to return VALID until a real `verification_key.json` is committed.
+## What stays secret
 
-## Vendored dependency
+- `x`.
+- If a human-memorable or random `seed` is used, derive `x` from it offline. The verifier must never receive the seed.
 
-`vendor/snarkjs.min.js` is copied from the official iden3/snarkjs **v0.7.6** tag.
-snarkjs is GPL-3.0 licensed. The repository already carries a GPL license.
+## Verification equation
 
-## Next cryptographic step
+The page computes
 
-Freeze the exact statement to be proved first. Only then generate the circuit, proving key and verification key. Do not replace `verification_key.json` with a key from a different circuit.
+`c = SHA256("ZK-ID-SCHNORR-v1" || Y || t || nonce) mod q`
+
+and accepts exactly when
+
+`g^s = t * Y^c (mod p)`.
+
+The group is RFC 3526 MODP Group 14 (2048-bit safe prime), using the q-order subgroup.
+
+## Runtime properties
+
+- no CDN
+- no external JavaScript
+- no network requests from the verifier page
+- no proof generation
+- no seed/private-key input
+
+The verifier proves knowledge of the secret corresponding to Y. It does not establish personhood, uniqueness, or legal identity.
