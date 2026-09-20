@@ -1,36 +1,34 @@
 # ZK verifier
 
-A small, dependency-free browser verifier for a Schnorr proof of knowledge.
+This directory contains:
 
-## What is public
+- `index.html`: public browser verifier.
+- `app.js`: dependency-free Schnorr/Fiat–Shamir verification logic.
+- `prover.html`: a single-file prover that deliberately refuses to operate unless opened from `file://`.
 
-- `Y = g^x mod p` — the anchor sent in the first email.
-- a fresh challenge/nonce chosen for the later verification.
-- proof `π = {t, s}`.
+## Flow
 
-## What stays secret
+1. Offline prover generates secret `x`.
+2. First email sends only `Y = g^x mod p`.
+3. Later, the prover creates a proof package `{context,t,s}`.
+4. Recipient pastes the old `Y` and the proof package into the public verifier.
+5. On the first successful verification, treat `Y` as spent.
 
-- `x`.
-- If a human-memorable or random `seed` is used, derive `x` from it offline. The verifier must never receive the seed.
+No recipient-generated nonce is required.
 
-## Verification equation
+## Important freshness limit
 
-The page computes
+Without a verifier challenge, an exact proof package can be replayed. Therefore this design is intentionally **one-shot**: the first accepted proof consumes the anchor. A party that intercepts the first proof before the recipient and races the same proof cannot be distinguished cryptographically without adding either an interactive challenge or an external freshness source.
 
-`c = SHA256("ZK-ID-SCHNORR-v1" || Y || t || nonce) mod q`
+## Runtime boundaries
 
-and accepts exactly when
-
-`g^s = t * Y^c (mod p)`.
-
-The group is RFC 3526 MODP Group 14 (2048-bit safe prime), using the q-order subgroup.
-
-## Runtime properties
-
+Verifier:
 - no CDN
 - no external JavaScript
-- no network requests from the verifier page
-- no proof generation
-- no seed/private-key input
+- no network requests
+- never sees secret x
 
-The verifier proves knowledge of the secret corresponding to Y. It does not establish personhood, uniqueness, or legal identity.
+Prover:
+- single local HTML file
+- refuses to run over http/https
+- no network requests
