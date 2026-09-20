@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Offline ZK Prover</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:light dark}
+body{margin:0;min-height:100vh;display:grid;place-items:center}
+main{width:min(44rem,calc(100% - 2rem));padding:2rem 0 4rem}
+textarea{box-sizing:border-box;width:100%;min-height:7rem;padding:.75rem;font: .9rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+label{display:block;font-weight:700;margin:1rem 0 .4rem}
+button{margin:.8rem .5rem 0 0;padding:.7rem 1rem;font:inherit;font-weight:700}
+.note{line-height:1.55;opacity:.8}
+.warn{font-weight:800}
+output{display:block;white-space:pre-wrap;margin-top:1rem;padding:.8rem;border:1px solid currentColor}
+</style>
+</head>
+<body>
+<main>
+<h1>Offline ZK Prover</h1>
+<p class="note">这个文件只应从 <code>file://</code> 本地打开。它不会联网。</p>
+<p id="mode" class="warn"></p>
+
+<label for="secret">秘密 x（绝对不要发送）</label>
+<textarea id="secret" spellcheck="false" placeholder="首次点“生成新身份”后这里会出现秘密 x"></textarea>
+<button id="newId" type="button">生成新身份</button>
+<button id="deriveY" type="button">计算公开锚 Y</button>
+
+<label for="context">本次要绑定的文字</label>
+<textarea id="context" spellcheck="false"
+placeholder="例如：2026-09-20 / 我现在通过这个地址联系你。"></textarea>
+
+<button id="makeProof" type="button">生成 proof</button>
+<output id="out">等待操作。</output>
+<script>
+"use strict";
+if (location.protocol !== "file:") {
+  document.getElementById("mode").textContent =
+    "拒绝运行：请先把此 HTML 文件保存到设备，再从本地文件打开。";
+  for (const b of document.querySelectorAll("button")) b.disabled = true;
+  throw new Error("offline only");
+}
+document.getElementById("mode").textContent = "LOCAL FILE ✓";
+
+const P = BigInt("0x" +
+  "FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1" +
+  "29024E088A67CC74020BBEA63B139B22514A08798E3404DD" +
+  "EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +
+  "E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED" +
+  "EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE45B3D" +
+  "C2007CB8A163BF0598DA48361C55D39A69163FA8FD24CF5F" +
+  "83655D23DCA3AD961C62F356208552BB9ED529077096966D" +
+  "670C354E4ABC9804F1746C08CA18217C32905E462E36CE3B" +
+  "E39E772C180E86039B2783A2EC07A28FB5C55DF06F4C52C9" +
+  "DE2BCBF6955817183995497CEA956AE515D2261898FA051015" +
+  "728E5A8AACAA68FFFFFFFFFFFFFFFF");
+const Q=(P-1n)/2n, G=2n, DOMAIN="ZK-ID-SCHNORR-v2";
+const secret=document.getElementById("secret");
+const context=document.getElementById("context");
+const out=document.getElementById("out");
+
+function modPow(base,exp,mod){
+  let b=((base%mod)+mod)%mod,e=exp,r=1n;
+  while(e>0n){if(e&1n)r=(r*b)%mod;b=(b*b)%mod;e>>=1n}
+  return r;
+}
+function parseHex(v,name){
+  const s=String(v).trim().toLowerCase().replace(/^0x/,"");
+  if(!/^[0-9a-f]+$/.test(s))throw new Error(name+" 不是合法十六进制。");
+  return BigInt("0x"+s);
+}
+function hex(n){return n.toString(16)}
+function randomScalar(){
+  const bytes=new Uint8Array(256);
+  crypto.getRandomValues(bytes);
+  let n=0n;
+  for(const b of bytes)n=(n<<8n)|BigInt(b);
+  return (n%(Q-1n))+1n;
+}
+async function challenge(y,t,ctx){
+  const msg=DOMAIN+"\n"+hex(y)+"\n"+hex(t)+"\n"+ctx;
+  const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(msg));
+  let n=0n; for(const b of new Uint8Array(d))n=(n<<8n)|BigInt(b);
+  return n%Q;
+}
+document.getElementById("newId").onclick=()=>{
+  const x=randomScalar();
+  secret.value=hex(x);
+  const y=modPow(G,x,P);
+  out.textContent="秘密 x（只保存，不发送）：\n"+hex(x)+"\n\n第一次邮件只发送公开锚 Y：\n"+hex(y);
+};
+document.getElementById("deriveY").onclick=()=>{
+  try{
+    const x=parseHex(secret.value,"x");
+    if(!(x>0n&&x<Q))throw new Error("x 超出范围。");
+    out.textContent="公开锚 Y：\n"+hex(modPow(G,x,P));
+  }catch(e){out.textContent="错误："+e.message}
+};
+document.getElementById("makeProof").onclick=async()=>{
+  try{
+    const x=parseHex(secret.value,"x");
+    if(!(x>0n&&x<Q))throw new Error("x 超出范围。");
+    const ctx=context.value;
+    if(!ctx.length)throw new Error("绑定文字不能为空。");
+    const y=modPow(G,x,P);
+    const r=randomScalar();
+    const t=modPow(G,r,P);
+    const c=await challenge(y,t,ctx);
+    const s=(r+c*x)%Q;
+    const pkg={context:ctx,t:hex(t),s:hex(s)};
+    out.textContent="公开锚 Y：\n"+hex(y)+"\n\n发送下面整个 proof 包：\n"+JSON.stringify(pkg);
+  }catch(e){out.textContent="错误："+e.message}
+};
+</script>
+</main>
+</body>
+</html>
