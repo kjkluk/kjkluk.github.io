@@ -4,33 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+        content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>ZK Verify</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <main>
-    <h1>Vérification / 验证</h1>
-    <p class="note">这里只验证公开输入和证明 π。不要输入 seed、密码或恢复码。</p>
+    <h1>零知识验证 / Vérification ZK</h1>
+    <p class="note">
+      Schnorr proof of knowledge。这里只验证公开锚 Y、challenge 和证明 π。
+      <strong>不要输入 seed、私钥或恢复码。</strong>
+    </p>
 
-    <label for="publicSignals">旧邮件中的公开输入 / Public inputs</label>
-    <textarea id="publicSignals" spellcheck="false"
-      placeholder='例如：["123", "456"]'></textarea>
+    <label for="publicY">旧邮件中的公开锚 Y</label>
+    <textarea id="publicY" spellcheck="false"
+      placeholder="十六进制，例如 8a4f..."></textarea>
 
-    <label for="proof">新邮件中的证明 π / Proof</label>
+    <label for="nonce">本次 challenge / nonce</label>
+    <textarea id="nonce" spellcheck="false"
+      placeholder="对方这次发出的随机 challenge，原样粘贴"></textarea>
+
+    <label for="proof">新邮件中的证明 π</label>
     <textarea id="proof" spellcheck="false"
-      placeholder='粘贴 proof JSON'></textarea>
+      placeholder='{"t":"十六进制","s":"十六进制"}'></textarea>
 
-    <button id="verify" type="button" disabled>验证 / Vérifier</button>
-    <output id="result" aria-live="polite">正在载入验证器…</output>
+    <button id="verify" type="button">验证 / Vérifier</button>
+    <output id="result" aria-live="polite">等待输入。</output>
 
     <details>
-      <summary>这个页面会做什么？</summary>
-      <p>页面只运行 Groth16 Verify。它不生成证明，也不需要、也不应当接触秘密 seed。</p>
+      <summary>它证明什么？</summary>
+      <p>它只证明：当前证明者知道与旧邮件中的 Y 对应的秘密 x，并且证明绑定到这次 challenge。它不证明“是人”“唯一”“原装”或其他制度判断。</p>
     </details>
   </main>
 
-  <script src="./vendor/snarkjs.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
