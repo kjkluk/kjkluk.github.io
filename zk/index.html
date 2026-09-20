@@ -12,7 +12,7 @@
   <main>
     <h1>零知识验证 / Vérification ZK</h1>
     <p class="note">
-      Schnorr proof of knowledge。这里只验证公开锚 Y、challenge 和证明 π。
+      单向 Schnorr / Fiat–Shamir 知识证明。对方不需要先发 nonce。
       <strong>不要输入 seed、私钥或恢复码。</strong>
     </p>
 
@@ -20,20 +20,16 @@
     <textarea id="publicY" spellcheck="false"
       placeholder="十六进制，例如 8a4f..."></textarea>
 
-    <label for="nonce">本次 challenge / nonce</label>
-    <textarea id="nonce" spellcheck="false"
-      placeholder="对方这次发出的随机 challenge，原样粘贴"></textarea>
-
-    <label for="proof">新邮件中的证明 π</label>
+    <label for="proof">新邮件中的 proof 包</label>
     <textarea id="proof" spellcheck="false"
-      placeholder='{"t":"十六进制","s":"十六进制"}'></textarea>
+      placeholder='{"context":"...","t":"...","s":"..."}'></textarea>
 
     <button id="verify" type="button">验证 / Vérifier</button>
     <output id="result" aria-live="polite">等待输入。</output>
 
     <details>
       <summary>它证明什么？</summary>
-      <p>它只证明：当前证明者知道与旧邮件中的 Y 对应的秘密 x，并且证明绑定到这次 challenge。它不证明“是人”“唯一”“原装”或其他制度判断。</p>
+      <p>它证明：生成这份 proof 的一方知道与旧锚 Y 对应的秘密 x，并且 proof 绑定到其中的 context。第一次 VALID 后，应把这个 Y 当作已使用，不再接受第二次。</p>
     </details>
   </main>
 
